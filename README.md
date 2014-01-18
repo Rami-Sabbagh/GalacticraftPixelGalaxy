@@ -1,4 +1,4 @@
 GalacticraftPixelGalaxy
 =======================
 
-Adds New Galaxy to Galacticraft
+The First Public Galacticraft Add-on that Adds New Galaxy to Galacticraft
