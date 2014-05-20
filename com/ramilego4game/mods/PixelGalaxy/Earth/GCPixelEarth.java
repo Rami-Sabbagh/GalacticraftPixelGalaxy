@@ -6,10 +6,10 @@ import micdoodle8.mods.galacticraft.api.world.IPlanet;
 import net.minecraft.world.WorldProvider;
 
 import com.ramilego4game.mods.PixelGalaxy.Earth.client.GCPixelEarthMap;
-import com.ramilego4game.mods.PixelGalaxy.Earth.world.gen.GCPixelEarthWorldProvider;
 import com.ramilego4game.mods.PixelGalaxy.Galaxy.GalacticraftPixelGalaxy;
 
 public class GCPixelEarth implements IPlanet{
+	private final IMapObject pearth = new GCPixelEarthMap();
 
 	@Override
 	public String getName() {
@@ -18,32 +18,33 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public boolean isReachable() {
-		return true;
+		return false;
 	}
 
 	@Override
 	public IMapObject getMapObject() {
-		return new GCPixelEarthMap();
+		return this.pearth;
 	}
 
 	@Override
 	public boolean addToList() {
-		return true;
+		return false;
 	}
 
 	@Override
 	public boolean autoRegister() {
-		return true;
+		return false;
 	}
 
 	@Override
 	public Class<? extends WorldProvider> getWorldProvider() {
-		return GCPixelEarthWorldProvider.class;
+		return null;
 	}
+	
 
 	@Override
 	public int getDimensionID() {
-		return -25;
+		return GalacticraftPixelEarth.dimearth;
 	}
 
 	@Override
@@ -53,7 +54,7 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public boolean forceStaticLoad() {
-		return true;
+		return false;
 	}
 
 }

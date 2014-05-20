@@ -9,7 +9,7 @@ public class GCPixelGalaxy implements IGalaxy
 
 	@Override
 	public String getGalaxyName() {
-		return "PixelGalaxy";
+		return StatCollector.translateToLocal("galaxy.pixelgalaxy.name");
 	}
 
 	@Override

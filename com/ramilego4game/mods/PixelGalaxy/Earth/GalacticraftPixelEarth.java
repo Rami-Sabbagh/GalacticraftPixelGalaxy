@@ -27,6 +27,13 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelEarth {
 	
+	//Config Varibles
+	public static int dimearth = -45;
+	public static int pemainid = 150;
+	public static int pgrassid = 200;
+	public static int pdirtid = 201;
+	public static int pstoneid = 202;
+	
 	//Our PixelEarth
 	public static GCPixelEarth pixelearth;
 	
@@ -44,8 +51,11 @@ public class GalacticraftPixelEarth {
 		public final static Block pixelDirt = new GreenBlock(201, Material.ground).setHardness(0.6f).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("pixeldirt").setTextureName("galacticraftpixel:pixeldirt");
 		public final static Block pixelStone = new NormBlock(202, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelstone").setTextureName("galacticraftpixel:pixelstone");
 		
-		public static BiomeGenBase PEBiome = new BiomeGenPEarth(150).setBiomeName("PEMain").setMinMaxHeight(-1F, 1F);
+		public static BiomeGenBase PEBiome = new BiomeGenPEarth(pemainid).setBiomeName("PEMain").setMinMaxHeight(-1F, 1F);
 	
+		
+		
+		
         // The instance of your mod that Forge uses.
         @Instance("GalacticraftPixelEarthID")
         public static GalacticraftPixelEarth instance;
@@ -60,13 +70,15 @@ public class GalacticraftPixelEarth {
         	
         	config.load();
         	
-        	//biomePEMID = config.getBlock("MainPixelEarthBiomeID", 180).getInt();
-        	//pixelEarthID = config.getBlock(Configuration.CATEGORY_GENERAL,"pixelEarthDimID", -45).getInt();
+        	/*pemainid = config.getBlock(Configuration.CATEGORY_GENERAL,"MainPixelEarthBiomeID", 150).getInt();
+        	dimearth = config.getBlock(Configuration.CATEGORY_GENERAL,"PixelEarthDimID", -45).getInt();
+        	pgrassid = config.getBlock(Configuration.CATEGORY_BLOCK,"PixelEarthGrassID", 200).getInt();
+        	pdirtid = config.getBlock(Configuration.CATEGORY_BLOCK,"PixelDirtGrassID", 201).getInt();
+        	pstoneid = config.getBlock(Configuration.CATEGORY_BLOCK,"PixelStoneGrassID", 202).getInt();*/
         	
         	config.save();
         	
-        	GalacticraftPixelEarth.pixelearth = new GCPixelEarth();
-        	GalacticraftRegistry.registerCelestialBody(GalacticraftPixelEarth.pixelearth);
+        	
         }
        
         @EventHandler
@@ -80,6 +92,9 @@ public class GalacticraftPixelEarth {
         	LanguageRegistry.addName(pixelDirt, "Pixel Dirt");
         	GameRegistry.registerBlock(pixelStone, "pixelstone");
         	LanguageRegistry.addName(pixelStone, "Pixel Stone");
+        	
+        	GalacticraftRegistry.registerCelestialBody(new GCPixelEarth());
+        	//GalacticraftRegistry.registerTeleportType(GCPixelEarthWorldProvider.class, new GCPixelEarthTeleportType());
         }
        
         @EventHandler
