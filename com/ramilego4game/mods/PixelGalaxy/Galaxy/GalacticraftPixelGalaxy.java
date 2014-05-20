@@ -10,7 +10,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid="GalacticraftPixelGalaxy", name="GalacticraftPixelGalaxy", version="0.0.5", dependencies = "required-after:GalacticraftCore")
+@Mod(modid="GalacticraftPixelGalaxyID", name="GalacticraftPixelGalaxy", version="0.0.6", dependencies = "required-after:GalacticraftCore")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelGalaxy {
 	
@@ -20,7 +20,7 @@ public class GalacticraftPixelGalaxy {
     public static final IGalaxy PixelGalaxy = new GCPixelGalaxy(); //Used to add Galaxy
 	
         // The instance of your mod that Forge uses.
-        @Instance("GalacticraftPixelGalaxy")
+        @Instance("GalacticraftPixelGalaxyID")
         public static GalacticraftPixelGalaxy instance;
        
         // Says where the client and server 'proxy' code is loaded.

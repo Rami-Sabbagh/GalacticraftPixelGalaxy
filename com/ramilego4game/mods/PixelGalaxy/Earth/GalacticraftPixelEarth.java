@@ -21,7 +21,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="GalacticraftPixelEarth", name="GalacticraftPixelEarth", version="0.0.5", dependencies = "required-after:GalacticraftCore")
+@Mod(modid="GalacticraftPixelEarthID", name="GalacticraftPixelEarth", version="0.0.6", dependencies = "required-after:GalacticraftCore")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelEarth {
 	
@@ -44,7 +44,7 @@ public class GalacticraftPixelEarth {
 		
 	
         // The instance of your mod that Forge uses.
-        @Instance("GalacticraftPixelEarth")
+        @Instance("GalacticraftPixelEarthID")
         public static GalacticraftPixelEarth instance;
        
         // Says where the client and server 'proxy' code is loaded.
