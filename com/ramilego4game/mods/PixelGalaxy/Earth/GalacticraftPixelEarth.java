@@ -21,7 +21,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="GalacticraftPixelEarthID", name="GalacticraftPixelEarth", version="0.0.6", dependencies = "required-after:GalacticraftCore")
+@Mod(modid="GalacticraftPixelEarthID", name="GalacticraftPixelEarth", version="0.0.7", dependencies = "required-after:GalacticraftCore;")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelEarth {
 	
