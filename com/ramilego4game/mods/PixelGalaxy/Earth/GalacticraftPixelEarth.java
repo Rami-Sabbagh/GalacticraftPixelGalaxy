@@ -5,11 +5,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
 
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.GreenBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.MTBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.NormBlock;
+import com.ramilego4game.mods.PixelGalaxy.Earth.world.biome.BiomeGenPEarth;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -42,6 +44,7 @@ public class GalacticraftPixelEarth {
 		public final static Block pixelDirt = new GreenBlock(201, Material.ground).setHardness(0.6f).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("pixeldirt").setTextureName("galacticraftpixel:pixeldirt");
 		public final static Block pixelStone = new NormBlock(202, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelstone").setTextureName("galacticraftpixel:pixelstone");
 		
+		public static BiomeGenBase PEBiome = new BiomeGenPEarth(150).setBiomeName("PEMain").setMinMaxHeight(-1F, 1F);
 	
         // The instance of your mod that Forge uses.
         @Instance("GalacticraftPixelEarthID")

@@ -43,7 +43,7 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public int getDimensionID() {
-		return -1;
+		return -25;
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public boolean forceStaticLoad() {
-		return false;
+		return true;
 	}
 
 }

@@ -7,6 +7,7 @@ import micdoodle8.mods.galacticraft.api.prefab.core.BlockMetaPair;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.GCBiomeDecoratorBase;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.GCChunkProvider;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.GCCoreMapGenBaseMeta;
+import micdoodle8.mods.galacticraft.moon.world.gen.GCMoonBiomeGenBase;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
@@ -14,6 +15,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import com.ramilego4game.mods.PixelGalaxy.Earth.GalacticraftPixelEarth;
 
 public class GCPixelEarthChunkProvider extends GCChunkProvider{
+	private final BiomeGenBase[] PEBiomes = { GalacticraftPixelEarth.PEBiome };
 
 	public GCPixelEarthChunkProvider(World par1World, long seed, boolean mapFeaturesEnabled) {
 		super(par1World, seed, mapFeaturesEnabled);
@@ -26,7 +28,7 @@ public class GCPixelEarthChunkProvider extends GCChunkProvider{
 
 	@Override
 	protected BiomeGenBase[] getBiomesForGeneration() {
-		return null; // TODO Create Biome
+		return PEBiomes;
 	}
 
 	@Override
