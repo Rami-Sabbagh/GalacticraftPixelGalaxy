@@ -1,13 +1,33 @@
-[
 {
-  "modlist": [{
-    "modid": "GalacticraftPixelGalaxy",
-    "name": "GalacticraftPixelGalaxy",
-    "description": "Adds Pixel Galaxy to Galacticraft",
-    "version": "0.0.5",
-    "mcversion": "1.6.4",
-    "authors": [ "RamiLego4Game" ],
-    "credits": "Created By RamiLego4Game"
-  }]
+	"modinfoversion": 2,
+	"modlist": [{
+		"modid": "GalacticraftPixelGalaxyID",
+		"name": "Galacicraft Pixel Galaxy",
+		"description": "Galacticraft 2 Add-on That Adds New Galaxy (Pixel Galaxy)",
+		"version": "0.0.6",
+		"mcversion": "1.6.4",
+		"url": "http://forum.micdoodle8.com/index.php?threads/pixel-galaxy.3149/",
+		"authors": [ "RamiLego4Game", "Flashy-3", "TheUnknownPlayer" ],
+		"credits": "Micdoodle8 for creating Galacticraft Mod"
+	},
+	{
+		"modid": "GalacticraftPixelSunID",
+		"name": "Galacicraft Pixel Sun",
+		"description": "Galacticraft 2 Add-on That Adds New Galaxy (Pixel Galaxy)",
+		"version": "0.0.6",
+		"mcversion": "1.6.4",
+		"url": "http://forum.micdoodle8.com/index.php?threads/pixel-galaxy.3149/",
+		"authors": [ "RamiLego4Game", "Flashy-3", "TheUnknownPlayer" ],
+		"credits": "Micdoodle8 for creating Galacticraft Mod"
+	},
+	{
+		"modid": "GalacticraftPixelEarthID",
+		"name": "Galacicraft Pixel Earth",
+		"description": "Galacticraft 2 Add-on That Adds New Galaxy (Pixel Galaxy)",
+		"version": "0.0.6",
+		"mcversion": "1.6.4",
+		"url": "http://forum.micdoodle8.com/index.php?threads/pixel-galaxy.3149/",
+		"authors": [ "RamiLego4Game", "Flashy-3", "TheUnknownPlayer" ],
+		"credits": "Micdoodle8 for creating Galacticraft Mod"
+	}]
 }
-]
