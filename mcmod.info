@@ -1,0 +1,13 @@
+[
+{
+  "modlist": [{
+    "modid": "GalacticraftPixelGalaxy",
+    "name": "GalacticraftPixelGalaxy",
+    "description": "Adds Pixel Galaxy to Galacticraft",
+    "version": "0.0.5",
+    "mcversion": "1.6.4",
+    "authors": [ "RamiLego4Game" ],
+    "credits": "Created By RamiLego4Game"
+  }]
+}
+]

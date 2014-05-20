@@ -50,4 +50,9 @@ public class GCPixelSun implements IPlanet{
 		return GalacticraftPixelGalaxy.PixelGalaxy;
 	}
 
+	@Override
+	public boolean forceStaticLoad() {
+		return false;
+	}
+
 }
