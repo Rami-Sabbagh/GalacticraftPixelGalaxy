@@ -5,15 +5,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.DimensionManager;
 
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.GreenBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.MTBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.NormBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthTeleportType;
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
-import com.ramilego4game.mods.PixelGalaxy.Earth.world.biome.BiomeGenPEarth;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -25,7 +24,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid="GalacticraftPixelEarthID", name="GalacticraftPixelEarth", version="0.0.7", dependencies = "required-after:GalacticraftCore;")
+@Mod(modid="GalacticraftPixelEarthID", name="GalacticraftPixelEarth", version="0.0.75", dependencies = "required-after:GalacticraftCore;")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelEarth {
 	
@@ -45,8 +44,6 @@ public class GalacticraftPixelEarth {
 		public final static Block pixelGrass = new MTBlock(200, Material.grass, "galacticraftpixel:pixelgrass").setHardness(0.6f).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pixelgrass");
 		public final static Block pixelDirt = new GreenBlock(201, Material.ground).setHardness(0.6f).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("pixeldirt").setTextureName("galacticraftpixel:pixeldirt");
 		public final static Block pixelStone = new NormBlock(202, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelstone").setTextureName("galacticraftpixel:pixelstone");
-		
-		public static BiomeGenBase PEBiome = new BiomeGenPEarth(150).setBiomeName("PEMain").setMinMaxHeight(-1F, 1F);
 	
         // The instance of your mod that Forge uses.
         @Instance("GalacticraftPixelEarthID")
@@ -83,6 +80,7 @@ public class GalacticraftPixelEarth {
         	LanguageRegistry.addName(pixelDirt, "Pixel Dirt");
         	GameRegistry.registerBlock(pixelStone, "pixelstone");
         	LanguageRegistry.addName(pixelStone, "Pixel Stone");
+        	
         	
         	LanguageRegistry.instance().addStringLocalization("gui.choosePlanet.desc.pixelearth", "en_US", "Habitable#No Oxygen#Gravity: 100%");
 			LanguageRegistry.instance().addStringLocalization("dimension.PixelEarth.name", "en_US", "PixelEarth");

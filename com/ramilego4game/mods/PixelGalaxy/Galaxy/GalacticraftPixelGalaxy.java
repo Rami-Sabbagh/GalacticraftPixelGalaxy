@@ -10,7 +10,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid="GalacticraftPixelGalaxyID", name="GalacticraftPixelGalaxy", version="0.0.7", dependencies = "required-after:GalacticraftCore;")
+@Mod(modid="GalacticraftPixelGalaxyID", name="GalacticraftPixelGalaxy", version="0.0.75", dependencies = "required-after:GalacticraftCore;")
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelGalaxy {
 	
