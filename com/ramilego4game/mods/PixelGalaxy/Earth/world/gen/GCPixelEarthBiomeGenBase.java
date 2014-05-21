@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class GCPixelEarthBiomeGenBase extends BiomeGenBase
 {
-	public static final BiomeGenBase moonFlat = new GCPixelEarthBiomeGenFlat(102).setBiomeName("moon");
+	public static final BiomeGenBase moonFlat = new GCPixelEarthBiomeGenFlat(102).setBiomeName("PEarthMain");
 
 	public GCPixelEarthBiomeGenBase(int var1)
 	{
