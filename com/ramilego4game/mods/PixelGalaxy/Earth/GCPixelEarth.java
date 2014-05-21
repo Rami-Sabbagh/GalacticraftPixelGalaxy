@@ -6,7 +6,7 @@ import micdoodle8.mods.galacticraft.api.world.IPlanet;
 import net.minecraft.world.WorldProvider;
 
 import com.ramilego4game.mods.PixelGalaxy.Earth.client.GCPixelEarthMap;
-import com.ramilego4game.mods.PixelGalaxy.Earth.world.gen.GCPixelEarthWorldProvider;
+import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
 import com.ramilego4game.mods.PixelGalaxy.Galaxy.GalacticraftPixelGalaxy;
 
 public class GCPixelEarth implements IPlanet{
@@ -28,7 +28,7 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public boolean addToList() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public boolean forceStaticLoad() {
-		return true;
+		return false;
 	}
 
 }

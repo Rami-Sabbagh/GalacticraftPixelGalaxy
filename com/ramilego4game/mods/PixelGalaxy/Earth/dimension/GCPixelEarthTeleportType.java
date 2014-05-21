@@ -1,4 +1,4 @@
-/*package com.ramilego4game.mods.PixelGalaxy.Earth.world;
+package com.ramilego4game.mods.PixelGalaxy.Earth.dimension;
 
 import java.util.Random;
 
@@ -15,16 +15,17 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-public class GCPixelEarthTeleportType implements ITeleportType{
-
+public class GCPixelEarthTeleportType implements ITeleportType
+{
 	@Override
-	public boolean useParachute() {
-		return true;
+	public boolean useParachute()
+	{
+		return GCCoreConfigManager.disableLander;
 	}
 
 	@Override
-	public Vector3 getPlayerSpawnLocation(WorldServer world,
-			EntityPlayerMP player) {
+	public Vector3 getPlayerSpawnLocation(WorldServer world, EntityPlayerMP player)
+	{
 		if (player instanceof GCCorePlayerMP)
 		{
 			return new Vector3(((GCCorePlayerMP) player).getCoordsTeleportedFromX(), GCCoreConfigManager.disableLander ? 250.0 : 900.0, ((GCCorePlayerMP) player).getCoordsTeleportedFromZ());
@@ -34,19 +35,27 @@ public class GCPixelEarthTeleportType implements ITeleportType{
 	}
 
 	@Override
-	public Vector3 getEntitySpawnLocation(WorldServer world, Entity entity) {
+	public Vector3 getEntitySpawnLocation(WorldServer world, Entity entity)
+	{
 		return new Vector3(entity.posX, GCCoreConfigManager.disableLander ? 250.0 : 900.0, entity.posZ);
 	}
 
 	@Override
-	public Vector3 getParaChestSpawnLocation(WorldServer world,
-			EntityPlayerMP player, Random rand) {
+	public Vector3 getParaChestSpawnLocation(WorldServer world, EntityPlayerMP player, Random rand)
+	{
+		if (GCCoreConfigManager.disableLander)
+		{
+			final double x = (rand.nextDouble() * 2 - 1.0D) * 5.0D;
+			final double z = (rand.nextDouble() * 2 - 1.0D) * 5.0D;
+			return new Vector3(x, 220.0D, z);
+		}
+
 		return null;
 	}
 
 	@Override
-	public void onSpaceDimensionChanged(World newWorld, EntityPlayerMP player,
-			boolean ridingAutoRocket) {
+	public void onSpaceDimensionChanged(World newWorld, EntityPlayerMP player, boolean ridingAutoRocket)
+	{
 		if (!ridingAutoRocket && player instanceof GCCorePlayerMP && ((GCCorePlayerMP) player).getTeleportCooldown() <= 0)
 		{
 			final GCCorePlayerMP gcPlayer = (GCCorePlayerMP) player;
@@ -70,6 +79,4 @@ public class GCPixelEarthTeleportType implements ITeleportType{
 			gcPlayer.setTeleportCooldown(10);
 		}
 	}
-
 }
-*/

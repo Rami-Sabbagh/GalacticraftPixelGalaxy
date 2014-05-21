@@ -11,6 +11,8 @@ import net.minecraftforge.common.Configuration;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.GreenBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.MTBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.NormBlock;
+import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthTeleportType;
+import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
 import com.ramilego4game.mods.PixelGalaxy.Earth.world.biome.BiomeGenPEarth;
 
 import cpw.mods.fml.common.Mod;
@@ -67,6 +69,7 @@ public class GalacticraftPixelEarth {
         	
         	GalacticraftPixelEarth.pixelearth = new GCPixelEarth();
         	GalacticraftRegistry.registerCelestialBody(GalacticraftPixelEarth.pixelearth);
+        	GalacticraftRegistry.registerTeleportType(GCPixelEarthWorldProvider.class, new GCPixelEarthTeleportType());
         }
        
         @EventHandler
