@@ -53,7 +53,6 @@ public class GCPixelEarthChunkProvider extends ChunkProviderGenerate
 	public GCPixelEarthBiomeDecorator biomedecoratorplanet = new GCPixelEarthBiomeDecorator(GCPixelEarthBiomeGenBase.moonFlat);
 
 	private final World worldObj;
-	private final GCPixelEarthMapGenVillage villageGenerator = new GCPixelEarthMapGenVillage();
 
 	private final GCCoreMapGenDungeon dungeonGenerator = new GCCoreMapGenDungeon(GCCoreBlocks.blockMoon.blockID, 14, 8, 16, 3);
 
@@ -348,11 +347,6 @@ public class GCPixelEarthChunkProvider extends ChunkProviderGenerate
 
 		this.dungeonGenerator.handleTileEntities(this.rand);
 
-		if (!GCMoonConfigManager.disableMoonVillageGen)
-		{
-			this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, par2, par3);
-		}
-
 		this.decoratePlanet(this.worldObj, this.rand, var4, var5);
 		BlockSand.fallInstantly = false;
 	}
@@ -397,9 +391,6 @@ public class GCPixelEarthChunkProvider extends ChunkProviderGenerate
 	@Override
 	public void recreateStructures(int par1, int par2)
 	{
-		if (!GCMoonConfigManager.disableMoonVillageGen)
-		{
-			this.villageGenerator.generate(this, this.worldObj, par1, par2, (byte[]) null);
-		}
+		
 	}
 }
