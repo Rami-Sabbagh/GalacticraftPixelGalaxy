@@ -1,18 +1,19 @@
 package com.ramilego4game.mods.PixelGalaxy.Earth.dimension;
 
-import com.ramilego4game.mods.PixelGalaxy.Earth.world.gen.GCPixelEarthChunkProvider;
-import com.ramilego4game.mods.PixelGalaxy.Earth.world.gen.GCPixelEarthWorldChunkManager;
-
 import micdoodle8.mods.galacticraft.api.world.IGalacticraftWorldProvider;
 import micdoodle8.mods.galacticraft.api.world.ISolarLevel;
-import micdoodle8.mods.galacticraft.core.GCCoreConfigManager;
-import micdoodle8.mods.galacticraft.moon.GCMoonConfigManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.client.IRenderHandler;
+
+import com.ramilego4game.mods.PixelGalaxy.Earth.client.GCPixelEarthSkyProvider;
+import com.ramilego4game.mods.PixelGalaxy.Earth.world.gen.GCPixelEarthChunkProvider;
+import com.ramilego4game.mods.PixelGalaxy.Earth.world.gen.GCPixelEarthWorldChunkManager;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -132,7 +133,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public boolean isSkyColored()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -259,5 +260,11 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	public float getSoundVolReductionAmount()
 	{
 		return 20.0F;
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public IRenderHandler getSkyRenderer()
+	{
+		return new GCPixelEarthSkyProvider();
 	}
 }

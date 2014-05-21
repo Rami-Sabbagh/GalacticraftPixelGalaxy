@@ -17,13 +17,14 @@ import net.minecraftforge.client.IRenderHandler;
 import org.lwjgl.opengl.GL11;
 
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
+import com.ramilego4game.mods.PixelGalaxy.Galaxy.GalacticraftPixelGalaxy;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class GCPixelEarthSkyProvider extends IRenderHandler
 {
-	private static final ResourceLocation overworldTexture = new ResourceLocation(GalacticraftCore.ASSET_DOMAIN, "textures/gui/planets/overworld.png");
-	private static final ResourceLocation sunTexture = new ResourceLocation("textures/environment/sun.png");
+	private static final ResourceLocation moonTexture = new ResourceLocation(GalacticraftPixelGalaxy.ASSET_DOMAIN, "textures/gui/planets/pixelmoon.png");
+	private static final ResourceLocation sunTexture = new ResourceLocation(GalacticraftPixelGalaxy.ASSET_DOMAIN, "textures/gui/planets/pixelsun.png");
 
 	public int starGLCallList = GLAllocation.generateDisplayLists(3);
 	public int glSkyList;
@@ -165,8 +166,8 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 		GL11.glRotatef(earthRotation, 1.0F, 0.0F, 0.0F);
 		GL11.glRotatef(200F, 1.0F, 0.0F, 0.0F);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1F);
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(GCPixelEarthSkyProvider.overworldTexture);
-		//world.getMoonPhase();
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(GCPixelEarthSkyProvider.moonTexture);
+		world.getMoonPhase();
 		var23.startDrawingQuads();
 		var23.addVertexWithUV(-var12, -100.0D, var12, 0, 1);
 		var23.addVertexWithUV(var12, -100.0D, var12, 1, 1);
