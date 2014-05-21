@@ -28,7 +28,7 @@ public class GCPixelEarth implements IPlanet{
 
 	@Override
 	public boolean addToList() {
-		return false;
+		return true;
 	}
 
 	@Override

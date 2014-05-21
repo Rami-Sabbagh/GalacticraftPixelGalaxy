@@ -83,6 +83,9 @@ public class GalacticraftPixelEarth {
         	LanguageRegistry.addName(pixelDirt, "Pixel Dirt");
         	GameRegistry.registerBlock(pixelStone, "pixelstone");
         	LanguageRegistry.addName(pixelStone, "Pixel Stone");
+        	
+        	LanguageRegistry.instance().addStringLocalization("gui.choosePlanet.desc.pixelearth", "en_US", "Habitable#No Oxygen#Gravity: 100%");
+			LanguageRegistry.instance().addStringLocalization("dimension.PixelEarth.name", "en_US", "PixelEarth");
         }
        
         @EventHandler

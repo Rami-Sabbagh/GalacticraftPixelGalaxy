@@ -20,7 +20,7 @@ public class GCPixelEarthTeleportType implements ITeleportType
 	@Override
 	public boolean useParachute()
 	{
-		return GCCoreConfigManager.disableLander;
+		return true;
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class GCPixelEarthTeleportType implements ITeleportType
 	{
 		if (player instanceof GCCorePlayerMP)
 		{
-			return new Vector3(((GCCorePlayerMP) player).getCoordsTeleportedFromX(), GCCoreConfigManager.disableLander ? 250.0 : 900.0, ((GCCorePlayerMP) player).getCoordsTeleportedFromZ());
+			return new Vector3(((GCCorePlayerMP) player).getCoordsTeleportedFromX(), 250.0, ((GCCorePlayerMP) player).getCoordsTeleportedFromZ());
 		}
 
 		return null;
@@ -37,46 +37,21 @@ public class GCPixelEarthTeleportType implements ITeleportType
 	@Override
 	public Vector3 getEntitySpawnLocation(WorldServer world, Entity entity)
 	{
-		return new Vector3(entity.posX, GCCoreConfigManager.disableLander ? 250.0 : 900.0, entity.posZ);
+		return new Vector3(entity.posX, 250.0, entity.posZ);
 	}
 
 	@Override
 	public Vector3 getParaChestSpawnLocation(WorldServer world, EntityPlayerMP player, Random rand)
 	{
-		if (GCCoreConfigManager.disableLander)
-		{
-			final double x = (rand.nextDouble() * 2 - 1.0D) * 5.0D;
-			final double z = (rand.nextDouble() * 2 - 1.0D) * 5.0D;
-			return new Vector3(x, 220.0D, z);
-		}
+		final double x = (rand.nextDouble() * 2 - 1.0D) * 5.0D;
+		final double z = (rand.nextDouble() * 2 - 1.0D) * 5.0D;
 
-		return null;
+		return new Vector3(player.posX + x, 230.0D, player.posZ + z);
 	}
 
 	@Override
 	public void onSpaceDimensionChanged(World newWorld, EntityPlayerMP player, boolean ridingAutoRocket)
 	{
-		if (!ridingAutoRocket && player instanceof GCCorePlayerMP && ((GCCorePlayerMP) player).getTeleportCooldown() <= 0)
-		{
-			final GCCorePlayerMP gcPlayer = (GCCorePlayerMP) player;
-
-			if (gcPlayer.capabilities.isFlying)
-			{
-				gcPlayer.capabilities.isFlying = false;
-			}
-
-			GCMarsEntityLandingBalloons lander = new GCMarsEntityLandingBalloons(gcPlayer);
-			lander.setPositionAndRotation(player.posX, player.posY, player.posZ, 0, 0);
-
-			if (!newWorld.isRemote)
-			{
-				newWorld.spawnEntityInWorld(lander);
-			}
-
-			final Object[] toSend2 = { 1 };
-			gcPlayer.playerNetServerHandler.sendPacketToPlayer(PacketUtil.createPacket(GalacticraftCore.CHANNEL, EnumPacketClient.ZOOM_CAMERA, toSend2));
-
-			gcPlayer.setTeleportCooldown(10);
-		}
+		
 	}
 }
