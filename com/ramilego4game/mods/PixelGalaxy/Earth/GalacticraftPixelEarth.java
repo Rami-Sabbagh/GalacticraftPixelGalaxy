@@ -4,9 +4,11 @@ import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.GreenBlock;
@@ -15,6 +17,11 @@ import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.NormBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthTeleportType;
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
 import com.ramilego4game.mods.PixelGalaxy.Earth.items.NormItem;
+import com.ramilego4game.mods.PixelGalaxy.Earth.items.axeItem;
+import com.ramilego4game.mods.PixelGalaxy.Earth.items.hoeItem;
+import com.ramilego4game.mods.PixelGalaxy.Earth.items.pickaxeItem;
+import com.ramilego4game.mods.PixelGalaxy.Earth.items.shovelItem;
+import com.ramilego4game.mods.PixelGalaxy.Earth.items.swordItem;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -51,7 +58,16 @@ public class GalacticraftPixelEarth {
 		public final static Block pixelizerOre = new NormBlock(205, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelizerore").setTextureName("galacticraftpixel:pixelizer_ore");
 		
 		//Items
-		public final static Item pixelizerIngot = new NormItem(4500).setUnlocalizedName("pixelizeringot").setTextureName("galacticraftpixel:pixelizer_ingot");
+		public final static Item PixelizerIngot = new NormItem(4500).setUnlocalizedName("pixelizeringot").setTextureName("galacticraftpixel:pixelizer_ingot");
+		
+		//Tools
+		public static EnumToolMaterial PEarthTool = EnumHelper.addToolMaterial("PEarthTool", 5, 1600, 9.0F, 3.0F, 10);
+		
+		public static Item PixelizerAxe = new axeItem(4501, PEarthTool).setUnlocalizedName("pixelizeraxe").setTextureName("galacticraftpixel:pixelizer_axe");
+		public static Item PixelizerShovel = new shovelItem(4502, PEarthTool).setUnlocalizedName("pixelizershovel").setTextureName("galacticraftpixel:pixelizer_shovel");
+		public static Item PixelizerPickaxe = new pickaxeItem(4503, PEarthTool).setUnlocalizedName("pixelizerpickaxe").setTextureName("galacticraftpixel:pixelizer_pickaxe");
+		public static Item PixelizerHoe = new hoeItem(4504, PEarthTool).setUnlocalizedName("pixelizerhoe").setTextureName("galacticraftpixel:pixelizer_hoe");
+		public static Item PixelizerSword = new swordItem(4505, PEarthTool).setUnlocalizedName("pixelizersword").setTextureName("galacticraftpixel:pixelizer_sword");
 		
         // The instance of your mod that Forge uses.
         @Instance("GalacticraftPixelEarthID")
@@ -99,17 +115,44 @@ public class GalacticraftPixelEarth {
         	LanguageRegistry.addName(pixelizerOre, "Pixelizer Ore");
         	
         	
-        	LanguageRegistry.addName(pixelizerIngot, "Pixelizer Ingot");
+        	LanguageRegistry.addName(PixelizerIngot, "Pixelizer Ingot");
+        	
+        	LanguageRegistry.addName(PixelizerPickaxe, "Pixelizer Pickaxe");
+        	LanguageRegistry.addName(PixelizerAxe, "Pixelizer Axe");
+        	LanguageRegistry.addName(PixelizerShovel, "Pixelizer Shovel");
+        	LanguageRegistry.addName(PixelizerHoe, "Pixelizer Hoe");
+        	LanguageRegistry.addName(PixelizerSword, "Pixelizer Sword");
         	
         	
         	LanguageRegistry.instance().addStringLocalization("gui.choosePlanet.desc.pixelearth", "en_US", "Habitable#No Oxygen#Gravity: 100%");
 			LanguageRegistry.instance().addStringLocalization("dimension.PixelEarth.name", "en_US", "PixelEarth");
 			
 			//ItemStacks
-			ItemStack pixelizerstack = new ItemStack(pixelizerIngot,3);
+			ItemStack pixelizerstack = new ItemStack(PixelizerIngot,3);
 			
 			//Smelting Recipes
 			GameRegistry.addSmelting(pixelizerOre.blockID, pixelizerstack, 3.5f);
+			
+			//Crafting Recipes
+			GameRegistry.addRecipe(new ItemStack(PixelizerPickaxe,1), new Object[]{
+				"TTT"," Y "," Y ",'T',PixelizerIngot,'Y',Item.stick
+				});
+
+
+			GameRegistry.addRecipe(new ItemStack(PixelizerSword,1), new Object[]{
+				" T "," T "," Y ",'T',PixelizerIngot,'Y',Item.stick
+				});
+
+
+			GameRegistry.addRecipe(new ItemStack(PixelizerAxe,1), new Object[]{
+				"TT ","TY "," Y ",'T',PixelizerIngot,'Y',Item.stick
+				});
+			GameRegistry.addRecipe(new ItemStack(PixelizerHoe,1), new Object[]{
+				"TT "," Y "," Y ",'T',PixelizerIngot,'Y',Item.stick
+				});
+			GameRegistry.addRecipe(new ItemStack(PixelizerShovel,1), new Object[]{
+				" T "," Y "," Y ",'T',PixelizerIngot,'Y',Item.stick
+				});
         }
        
         @EventHandler
