@@ -57,11 +57,11 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		return this.worldObj.getWorldVec3Pool().getVecFromPool((double) 0F / 255F, (double) 0F / 255F, (double) 0F / 255F);
 	}
 
-	@Override
+	/*@Override
 	public Vec3 getSkyColor(Entity cameraEntity, float partialTicks)
 	{
 		return this.worldObj.getWorldVec3Pool().getVecFromPool(0, 0, 0);
-	}
+	}*/
 
 	@Override
 	public float calculateCelestialAngle(long par1, float par3)
@@ -133,7 +133,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public boolean isSkyColored()
 	{
-		return true;
+		return false;
 	}
 
 	@Override
@@ -217,7 +217,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public float getGravity()
 	{
-		return 0.062F;
+		return 0F;
 	}
 
 	@Override
@@ -229,7 +229,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public double getMeteorFrequency()
 	{
-		return 7.0D;
+		return 7D;
 	}
 
 	@Override
@@ -262,9 +262,9 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		return 20.0F;
 	}
 	
-	@SideOnly(Side.CLIENT)
+	/*@SideOnly(Side.CLIENT)
 	public IRenderHandler getSkyRenderer()
 	{
 		return new GCPixelEarthSkyProvider();
-	}
+	}*/
 }

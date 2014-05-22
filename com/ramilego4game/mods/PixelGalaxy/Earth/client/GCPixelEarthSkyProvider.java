@@ -16,19 +16,28 @@ import net.minecraftforge.client.IRenderHandler;
 
 import org.lwjgl.opengl.GL11;
 
-import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
 import com.ramilego4game.mods.PixelGalaxy.Galaxy.GalacticraftPixelGalaxy;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
+/**
+ * GCCoreSkyProviderOverworld.java
+ * 
+ * This file is part of the Galacticraft project
+ * 
+ * @author micdoodle8
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ * 
+ */
 public class GCPixelEarthSkyProvider extends IRenderHandler
 {
-	private static final ResourceLocation moonTexture = new ResourceLocation(GalacticraftPixelGalaxy.ASSET_DOMAIN, "textures/gui/planets/pixelmoon.png");
+	private static final ResourceLocation moonTexture = new ResourceLocation(GalacticraftPixelGalaxy.ASSET_DOMAIN, "textures/gui/planets/pixelmoon_phases.png");
 	private static final ResourceLocation sunTexture = new ResourceLocation(GalacticraftPixelGalaxy.ASSET_DOMAIN, "textures/gui/planets/pixelsun.png");
 
 	public int starGLCallList = GLAllocation.generateDisplayLists(3);
 	public int glSkyList;
 	public int glSkyList2;
+	private final ResourceLocation planetToRender = new ResourceLocation(GalacticraftCore.ASSET_DOMAIN, "textures/gui/planets/overworld.png");
 
 	public GCPixelEarthSkyProvider()
 	{
@@ -40,7 +49,7 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 		final Tessellator tessellator = Tessellator.instance;
 		this.glSkyList = this.starGLCallList + 1;
 		GL11.glNewList(this.glSkyList, GL11.GL_COMPILE);
-		final byte byte2 = 64;
+		final byte byte2 = 5;
 		final int i = 256 / byte2 + 2;
 		float f = 16F;
 
@@ -78,24 +87,22 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 		GL11.glEndList();
 	}
 
+	private final Minecraft minecraft = FMLClientHandler.instance().getClient();
+
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc)
 	{
-		GCPixelEarthWorldProvider gcProvider = null;
-
-		if (world.provider instanceof GCPixelEarthWorldProvider)
-		{
-			gcProvider = (GCPixelEarthWorldProvider) world.provider;
-		}
+		float var20 = (float) (mc.thePlayer.posY - 200.0F) / 1000.0F;
+		final float var21 = Math.max(1.0F - var20 * 4.0F, 0.0F);
 
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		final Vec3 var2 = this.getCustomSkyColor();
-		float var3 = (float) var2.xCoord * (1 - world.getStarBrightness(partialTicks) * 2);
-		float var4 = (float) var2.yCoord * (1 - world.getStarBrightness(partialTicks) * 2);
-		float var5 = (float) var2.zCoord * (1 - world.getStarBrightness(partialTicks) * 2);
+		final Vec3 var2 = this.minecraft.theWorld.getSkyColor(this.minecraft.renderViewEntity, partialTicks);
+		float var3 = (float) var2.xCoord * var21;
+		float var4 = (float) var2.yCoord * var21;
+		float var5 = (float) var2.zCoord * var21;
 		float var8;
 
-		if (mc.gameSettings.anaglyph)
+		if (this.minecraft.gameSettings.anaglyph)
 		{
 			final float var6 = (var3 * 30.0F + var4 * 59.0F + var5 * 11.0F) / 100.0F;
 			final float var7 = (var3 * 30.0F + var4 * 70.0F) / 100.0F;
@@ -105,75 +112,107 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 			var5 = var8;
 		}
 
-		GL11.glColor3f(1, 1, 1);
+		GL11.glColor3f(var3, var4, var5);
 		final Tessellator var23 = Tessellator.instance;
 		GL11.glDepthMask(false);
 		GL11.glEnable(GL11.GL_FOG);
-		GL11.glColor3f(0, 0, 0);
+		GL11.glColor3f(var3, var4, var5);
 		GL11.glCallList(this.glSkyList);
 		GL11.glDisable(GL11.GL_FOG);
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
 		GL11.glEnable(GL11.GL_BLEND);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		RenderHelper.disableStandardItemLighting();
+		final float[] var24 = this.minecraft.theWorld.provider.calcSunriseSunsetColors(this.minecraft.theWorld.getCelestialAngle(partialTicks), partialTicks);
+		float var9;
 		float var10;
 		float var11;
 		float var12;
 
-		float var20 = 0;
-
-		if (gcProvider != null)
+		if (var24 != null)
 		{
-			var20 = gcProvider.getStarBrightness(partialTicks);
-		}
+			GL11.glDisable(GL11.GL_TEXTURE_2D);
+			GL11.glShadeModel(GL11.GL_SMOOTH);
+			GL11.glPushMatrix();
+			GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
+			GL11.glRotatef(MathHelper.sin(this.minecraft.theWorld.getCelestialAngleRadians(partialTicks)) < 0.0F ? 180.0F : 0.0F, 0.0F, 0.0F, 1.0F);
+			GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
+			var8 = var24[0];
+			var9 = var24[1];
+			var10 = var24[2];
+			float var13;
 
-		if (var20 > 0.0F)
-		{
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, var20);
-			GL11.glCallList(this.starGLCallList);
+			if (this.minecraft.gameSettings.anaglyph)
+			{
+				var11 = (var8 * 30.0F + var9 * 59.0F + var10 * 11.0F) / 100.0F;
+				var12 = (var8 * 30.0F + var9 * 70.0F) / 100.0F;
+				var13 = (var8 * 30.0F + var10 * 70.0F) / 100.0F;
+				var8 = var11;
+				var9 = var12;
+				var10 = var13;
+			}
+
+			var23.startDrawing(6);
+
+			var23.setColorRGBA_F(var8 * var21, var9 * var21, var10 * var21, var24[3] * var21);
+			var23.addVertex(0.0D, 100.0D, 0.0D);
+			final byte var26 = 16;
+			var23.setColorRGBA_F(var24[0] * var21, var24[1] * var21, var24[2] * var21, 0.0F);
+
+			for (int var27 = 0; var27 <= var26; ++var27)
+			{
+				var13 = var27 * (float) Math.PI * 2.0F / var26;
+				final float var14 = MathHelper.sin(var13);
+				final float var15 = MathHelper.cos(var13);
+				var23.addVertex(var14 * 120.0F, var15 * 120.0F, -var15 * 40.0F * var24[3]);
+			}
+
+			var23.draw();
+			GL11.glPopMatrix();
+			GL11.glShadeModel(GL11.GL_FLAT);
 		}
 
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 		GL11.glPushMatrix();
-
-		GL11.glPopMatrix();
-
-		GL11.glPushMatrix();
-
+		var8 = 1.0F - this.minecraft.theWorld.getRainStrength(partialTicks);
+		var9 = 0.0F;
+		var10 = 0.0F;
+		var11 = 0.0F;
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, var8);
+		GL11.glTranslatef(var9, var10, var11);
 		GL11.glRotatef(-90.0F, 0.0F, 1.0F, 0.0F);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 5F);
-		GL11.glRotatef(world.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
+
+		GL11.glRotatef(this.minecraft.theWorld.getCelestialAngle(partialTicks) * 360.0F, 1.0F, 0.0F, 0.0F);
 		var12 = 30.0F;
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(GCPixelEarthSkyProvider.sunTexture);
+		this.minecraft.renderEngine.bindTexture(GCPixelEarthSkyProvider.sunTexture);
 		var23.startDrawingQuads();
-		var23.addVertexWithUV(-var12, 150.0D, -var12, 0.0D, 0.0D);
-		var23.addVertexWithUV(var12, 150.0D, -var12, 1.0D, 0.0D);
-		var23.addVertexWithUV(var12, 150.0D, var12, 1.0D, 1.0D);
-		var23.addVertexWithUV(-var12, 150.0D, var12, 0.0D, 1.0D);
+		var23.addVertexWithUV(-var12, 100.0D, -var12, 0.0D, 0.0D);
+		var23.addVertexWithUV(var12, 100.0D, -var12, 1.0D, 0.0D);
+		var23.addVertexWithUV(var12, 100.0D, var12, 1.0D, 1.0D);
+		var23.addVertexWithUV(-var12, 100.0D, var12, 0.0D, 1.0D);
 		var23.draw();
 
-		GL11.glPopMatrix();
-
-		GL11.glPushMatrix();
-
-		GL11.glDisable(GL11.GL_BLEND);
-
-		// HOME:
-		var12 = 10.0F;
-		final float earthRotation = (float) (world.getSpawnPoint().posZ - mc.thePlayer.posZ) * 0.01F;
-		GL11.glScalef(0.6F, 0.6F, 0.6F);
-		GL11.glRotatef(earthRotation, 1.0F, 0.0F, 0.0F);
-		GL11.glRotatef(200F, 1.0F, 0.0F, 0.0F);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1F);
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(GCPixelEarthSkyProvider.moonTexture);
-		world.getMoonPhase();
+		var12 = 40.0F;
+		this.minecraft.renderEngine.bindTexture(GCPixelEarthSkyProvider.moonTexture);
+		float var28 = this.minecraft.theWorld.getMoonPhase();
+		final int var30 = (int) (var28 % 4);
+		final int var29 = (int) (var28 / 4 % 2);
+		final float var16 = (var30 + 0) / 4.0F;
+		final float var17 = (var29 + 0) / 2.0F;
+		final float var18 = (var30 + 1) / 4.0F;
+		final float var19 = (var29 + 1) / 2.0F;
 		var23.startDrawingQuads();
-		var23.addVertexWithUV(-var12, -100.0D, var12, 0, 1);
-		var23.addVertexWithUV(var12, -100.0D, var12, 1, 1);
-		var23.addVertexWithUV(var12, -100.0D, -var12, 1, 0);
-		var23.addVertexWithUV(-var12, -100.0D, -var12, 0, 0);
+		var23.addVertexWithUV(-var12, -100.0D, var12, var18, var19);
+		var23.addVertexWithUV(var12, -100.0D, var12, var16, var19);
+		var23.addVertexWithUV(var12, -100.0D, -var12, var16, var17);
+		var23.addVertexWithUV(-var12, -100.0D, -var12, var18, var17);
 		var23.draw();
+
+		GL11.glDisable(GL11.GL_TEXTURE_2D);
+
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glCallList(this.starGLCallList);
 
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		GL11.glDisable(GL11.GL_BLEND);
@@ -182,43 +221,40 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 		GL11.glPopMatrix();
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glColor3f(0.0F, 0.0F, 0.0F);
-		final double var25 = mc.thePlayer.getPosition(partialTicks).yCoord - world.getHorizon();
 
-		if (var25 < 0.0D)
-		{
-			GL11.glPushMatrix();
-			GL11.glTranslatef(0.0F, 12.0F, 0.0F);
-			GL11.glCallList(this.glSkyList2);
-			GL11.glPopMatrix();
-			var10 = 1.0F;
-			var11 = -((float) (var25 + 65.0D));
-			var12 = -var10;
-			var23.startDrawingQuads();
-			var23.setColorRGBA_I(0, 255);
-			var23.addVertex(-var10, var11, var10);
-			var23.addVertex(var10, var11, var10);
-			var23.addVertex(var10, var12, var10);
-			var23.addVertex(-var10, var12, var10);
-			var23.addVertex(-var10, var12, -var10);
-			var23.addVertex(var10, var12, -var10);
-			var23.addVertex(var10, var11, -var10);
-			var23.addVertex(-var10, var11, -var10);
-			var23.addVertex(var10, var12, -var10);
-			var23.addVertex(var10, var12, var10);
-			var23.addVertex(var10, var11, var10);
-			var23.addVertex(var10, var11, -var10);
-			var23.addVertex(-var10, var11, -var10);
-			var23.addVertex(-var10, var11, var10);
-			var23.addVertex(-var10, var12, var10);
-			var23.addVertex(-var10, var12, -var10);
-			var23.addVertex(-var10, var12, -var10);
-			var23.addVertex(-var10, var12, var10);
-			var23.addVertex(var10, var12, var10);
-			var23.addVertex(var10, var12, -var10);
-			var23.draw();
-		}
+		double var25 = this.minecraft.thePlayer.posY - 64;
 
-		GL11.glColor3f(70F / 256F, 70F / 256F, 70F / 256F);
+		var20 *= 400.0F;
+
+		final float var22 = Math.max(Math.min(var20 / 100.0F - 0.2F, 1.0F), 0.0F);
+
+		GL11.glPushMatrix();
+		GL11.glEnable(GL11.GL_TEXTURE_2D);
+		GL11.glTranslatef(0.0F, -var20 / 10 - 5, 0.0F);
+		float scale = 100 * (0.25F - var20 / 10000.0F);
+		scale = Math.max(scale, 0.2F);
+		GL11.glScalef(scale, 0.0F, scale);
+		GL11.glTranslatef(0.0F, -var20, 0.0F);
+		this.minecraft.renderEngine.bindTexture(this.planetToRender);
+
+		var10 = 1.0F;
+
+		GL11.glColor4f(var22, var22, var22, var22);
+		var23.startDrawingQuads();
+		var23.addVertexWithUV(-var10, 0, var10, 0.0F, 1.0F);
+		var23.addVertexWithUV(var10, 0, var10, 1.0F, 1.0F);
+		var23.addVertexWithUV(var10, 0, -var10, 1.0F, 0.0F);
+		var23.addVertexWithUV(-var10, 0, -var10, 0.0F, 0.0F);
+		var23.addVertexWithUV(-var10, 0, var10, 0.0F, 1.0F);
+		var23.addVertexWithUV(var10, 0, var10, 1.0F, 1.0F);
+		var23.addVertexWithUV(var10, 0, -var10, 1.0F, 0.0F);
+		var23.addVertexWithUV(-var10, 0, -var10, 0.0F, 0.0F);
+		var23.addVertexWithUV(-var10, -50, -var10, 0.0F, 0.0F);
+		var23.draw();
+		GL11.glDisable(GL11.GL_TEXTURE_2D);
+		GL11.glPopMatrix();
+
+		GL11.glColor3f(0.0f, 0.0f, 0.0f);
 
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0F, -((float) (var25 - 16.0D)), 0.0F);
@@ -278,28 +314,5 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 		}
 
 		var2.draw();
-	}
-
-	private Vec3 getCustomSkyColor()
-	{
-		return Vec3.fakePool.getVecFromPool(0.26796875D, 0.1796875D, 0.0D);
-	}
-
-	public float getSkyBrightness(float par1)
-	{
-		final float var2 = FMLClientHandler.instance().getClient().theWorld.getCelestialAngle(par1);
-		float var3 = 1.0F - (MathHelper.sin(var2 * (float) Math.PI * 2.0F) * 2.0F + 0.25F);
-
-		if (var3 < 0.0F)
-		{
-			var3 = 0.0F;
-		}
-
-		if (var3 > 1.0F)
-		{
-			var3 = 1.0F;
-		}
-
-		return var3 * var3 * 1F;
 	}
 }

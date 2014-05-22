@@ -159,7 +159,7 @@ public class GCPixelEarthChunkProvider extends ChunkProviderGenerate
 
 					if (var16 <= 0 + this.rand.nextInt(5))
 					{
-						arrayOfIDs[index] = (short) Block.bedrock.blockID;
+						arrayOfIDs[index] = (short) GalacticraftPixelEarth.pixelBedrock.blockID;
 					}
 					else
 					{
