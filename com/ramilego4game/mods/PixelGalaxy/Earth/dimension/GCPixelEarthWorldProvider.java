@@ -5,6 +5,7 @@ import micdoodle8.mods.galacticraft.api.world.ISolarLevel;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -18,7 +19,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacticraftWorldProvider, ISolarLevel
-{
+{	
 	@Override
 	public void setDimension(int var1)
 	{
@@ -26,7 +27,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		super.setDimension(var1);
 	}
 
-	@Override
+	/*@Override
 	protected void generateLightBrightnessTable()
 	{
 		final float var1 = 0.0F;
@@ -42,9 +43,9 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	public float[] calcSunriseSunsetColors(float var1, float var2)
 	{
 		return null;
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void registerWorldChunkManager()
 	{
 		this.worldChunkMgr = new GCPixelEarthWorldChunkManager();
@@ -57,7 +58,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		return this.worldObj.getWorldVec3Pool().getVecFromPool((double) 0F / 255F, (double) 0F / 255F, (double) 0F / 255F);
 	}
 
-	/*@Override
+	@Override
 	public Vec3 getSkyColor(Entity cameraEntity, float partialTicks)
 	{
 		return this.worldObj.getWorldVec3Pool().getVecFromPool(0, 0, 0);
@@ -85,7 +86,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		return var5;
 	}
 
-	@Override
+	/*@Override
 	@SideOnly(Side.CLIENT)
 	public float getStarBrightness(float par1)
 	{
@@ -103,7 +104,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		}
 
 		return var3 * var3 * 0.5F + 0.3F;
-	}
+	}*/
 
 	public float calculatePhobosAngle(long par1, float par3)
 	{
@@ -121,7 +122,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		return new GCPixelEarthChunkProvider(this.worldObj, this.worldObj.getSeed(), this.worldObj.getWorldInfo().isMapFeaturesEnabled());
 	}
 
-	@Override
+	/*@Override
 	public void updateWeather()
 	{
 		this.worldObj.getWorldInfo().setRainTime(0);
@@ -133,7 +134,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public boolean isSkyColored()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -146,7 +147,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	public int getAverageGroundLevel()
 	{
 		return 44;
-	}
+	}*/
 
 	@Override
 	public boolean isSurfaceWorld()
@@ -190,7 +191,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 		return "PixelEarth";
 	}
 
-	@Override
+	/*@Override
 	public boolean canSnowAt(int x, int y, int z)
 	{
 		return false;
@@ -212,7 +213,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	public boolean canDoRainSnowIce(Chunk chunk)
 	{
 		return false;
-	}
+	}*/
 
 	@Override
 	public float getGravity()
@@ -229,7 +230,7 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public double getMeteorFrequency()
 	{
-		return 7D;
+		return 1D;
 	}
 
 	@Override
@@ -259,12 +260,6 @@ public class GCPixelEarthWorldProvider extends WorldProvider implements IGalacti
 	@Override
 	public float getSoundVolReductionAmount()
 	{
-		return 20.0F;
+		return 0F;
 	}
-	
-	/*@SideOnly(Side.CLIENT)
-	public IRenderHandler getSkyRenderer()
-	{
-		return new GCPixelEarthSkyProvider();
-	}*/
 }

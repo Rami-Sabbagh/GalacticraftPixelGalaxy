@@ -12,11 +12,14 @@ import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 
-import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.GreenBlock;
-import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.MTBlock;
+import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.DirtBlock;
+import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.FarmBlock;
+import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.GrassBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.NormBlock;
+import com.ramilego4game.mods.PixelGalaxy.Earth.blocks.OreBlock;
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthTeleportType;
 import com.ramilego4game.mods.PixelGalaxy.Earth.dimension.GCPixelEarthWorldProvider;
+import com.ramilego4game.mods.PixelGalaxy.Earth.event.GCPixelEarthOxygenEvent;
 import com.ramilego4game.mods.PixelGalaxy.Earth.items.NormItem;
 import com.ramilego4game.mods.PixelGalaxy.Earth.items.PixelizerArmor;
 import com.ramilego4game.mods.PixelGalaxy.Earth.items.axeItem;
@@ -27,6 +30,7 @@ import com.ramilego4game.mods.PixelGalaxy.Earth.items.swordItem;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -40,25 +44,33 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false)
 public class GalacticraftPixelEarth {
 	
-	//Our PixelEarth
-	public static GCPixelEarth pixelearth;
+		// Says where the client and server 'proxy' code is loaded.
+		@SidedProxy(clientSide = "com.ramilego4game.mods.PixelGalaxy.Earth.client.PixelEarthClientProxy", serverSide = "com.ramilego4game.mods.PixelGalaxy.Earth.PixelEarthCommonProxy")
+		public static PixelEarthCommonProxy proxy;
+		
+		// The instance of your mod that Forge uses.
+        @Instance("GalacticraftPixelEarthID")
+        public static GalacticraftPixelEarth instance;
 	
+		//Our PixelEarth
+		public static GCPixelEarth pixelearth;
 	
-	
-	//Creative Tab
-	public static CreativeTabs tabPEarth = new CreativeTabs("tabPEarth") {
-		public ItemStack getIconItemStack() {
-			return new ItemStack(pixelGrass, 1, 0);
-		}
-	};
+		//Creative Tab
+		public static CreativeTabs tabPEarth = new CreativeTabs("tabPEarth") {
+			public ItemStack getIconItemStack() {
+				return new ItemStack(pixelGrass, 1, 0);
+			}
+		};
 	
 		//Blocks
 		public final static Block pixelBedrock = new NormBlock(200, Material.rock).setBlockUnbreakable().setResistance(6000000.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelbedrock").setTextureName("galacticraftpixel:pixelbedrock");
-		public final static Block pixelGrass = new MTBlock(201, Material.grass, "galacticraftpixel:pixelgrass").setHardness(0.6f).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pixelgrass");
-		public final static Block pixelDirt = new GreenBlock(202, Material.ground).setHardness(0.6f).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("pixeldirt").setTextureName("galacticraftpixel:pixeldirt");
+		public final static Block pixelGrass = new GrassBlock(201).setHardness(0.6f).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("pixelgrass").setTextureName("galacticraftpixel:pixelgrass");
+		public final static Block pixelDirt = new DirtBlock(202, Material.ground).setHardness(0.6f).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("pixeldirt").setTextureName("galacticraftpixel:pixeldirt");
 		public final static Block pixelStone = new NormBlock(203, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelstone").setTextureName("galacticraftpixel:pixelstone");
 		public final static Block pixelBrick = new NormBlock(204, Material.rock).setHardness(1f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelbrick").setTextureName("galacticraftpixel:pixelbrick");
-		public final static Block pixelizerOre = new NormBlock(205, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelizerore").setTextureName("galacticraftpixel:pixelizer_ore");
+		public final static Block pixelizerOre = new OreBlock(205, Material.rock).setHardness(0.6f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelizerore").setTextureName("galacticraftpixel:pixelizer_ore");
+		public final static Block pixelFarm = new FarmBlock(206).setHardness(0.6f).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("pixelfarm").setTextureName("galacticraftpixel:pixelfarm");
+		public final static Block pixelizerBlock = new OreBlock(207, Material.rock).setHardness(1f).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("pixelizerblock").setTextureName("galacticraftpixel:pixelizer_block");
 		
 		//Items
 		public final static Item PixelizerIngot = new NormItem(4500).setUnlocalizedName("pixelizeringot").setTextureName("galacticraftpixel:pixelizer_ingot");
@@ -80,12 +92,10 @@ public class GalacticraftPixelEarth {
 		public static Item PixelizerLeggings = new PixelizerArmor(4508, PixelizerArmor, 5, 2).setUnlocalizedName("pixelizer_leggings").setTextureName("galacticraftpixel:pixelizer_leggings");
 		public static Item PixelizerBoots = new PixelizerArmor(4509, PixelizerArmor, 5, 3).setUnlocalizedName("pixelizer_boots").setTextureName("galacticraftpixel:pixelizer_boots");
 		
-        // The instance of your mod that Forge uses.
-        @Instance("GalacticraftPixelEarthID")
-        public static GalacticraftPixelEarth instance;
-       
-        // Says where the client and server 'proxy' code is loaded.
-        public static PixelEarthCommonProxy proxy;
+		
+		
+		
+        
        
         @EventHandler
         public void preInit(FMLPreInitializationEvent event) {
@@ -102,10 +112,14 @@ public class GalacticraftPixelEarth {
         	GalacticraftPixelEarth.pixelearth = new GCPixelEarth();
         	GalacticraftRegistry.registerCelestialBody(GalacticraftPixelEarth.pixelearth);
         	GalacticraftRegistry.registerTeleportType(GCPixelEarthWorldProvider.class, new GCPixelEarthTeleportType());
+        	
+        	MinecraftForge.EVENT_BUS.register(new GCPixelEarthOxygenEvent());
+        	
+        	GalacticraftPixelEarth.proxy.preInit(event);
         }
        
         @EventHandler
-        public void load(FMLInitializationEvent event) {
+        public void init(FMLInitializationEvent event) {
                 //proxy.registerRenderers();
         	MinecraftForge.setBlockHarvestLevel(pixelBrick, "pickaxe", 3);
         	
@@ -126,6 +140,8 @@ public class GalacticraftPixelEarth {
         	LanguageRegistry.addName(pixelBrick, "Pixel Brick");
         	GameRegistry.registerBlock(pixelizerOre, "pixelizerore");
         	LanguageRegistry.addName(pixelizerOre, "Pixelizer Ore");
+        	GameRegistry.registerBlock(pixelFarm, "pixelfarm");
+        	LanguageRegistry.addName(pixelFarm, "Pixel Farm");
         	
         	
         	LanguageRegistry.addName(PixelizerIngot, "Pixelizer Ingot");
@@ -162,11 +178,16 @@ public class GalacticraftPixelEarth {
 			GameRegistry.addRecipe(new ItemStack(PixelizerChestplate,1), new Object[]{"T T","TTT","TTT",'T',PixelizerIngot});
 			GameRegistry.addRecipe(new ItemStack(PixelizerLeggings,1), new Object[]{"TTT","T T","T T",'T',PixelizerIngot});
 			GameRegistry.addRecipe(new ItemStack(PixelizerBoots,1), new Object[]{"T T","T T","   ",'T',PixelizerIngot});
+			
+			GameRegistry.addRecipe(new ItemStack(pixelizerBlock,1), new Object[]{"TTT","TTT","TTT",'T',PixelizerIngot});
+			
+			GalacticraftPixelEarth.proxy.init(event);
         }
        
         @EventHandler
         public void postInit(FMLPostInitializationEvent event) {
                 // Stub Method
+        	GalacticraftPixelEarth.proxy.postInit(event);
         }
        
 }

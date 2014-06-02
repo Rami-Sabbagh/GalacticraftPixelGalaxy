@@ -37,7 +37,7 @@ public class GCPixelEarthSkyProvider extends IRenderHandler
 	public int starGLCallList = GLAllocation.generateDisplayLists(3);
 	public int glSkyList;
 	public int glSkyList2;
-	private final ResourceLocation planetToRender = new ResourceLocation(GalacticraftCore.ASSET_DOMAIN, "textures/gui/planets/overworld.png");
+	private final ResourceLocation planetToRender = new ResourceLocation(GalacticraftPixelGalaxy.ASSET_DOMAIN, "textures/gui/planets/pixelearth.png");
 
 	public GCPixelEarthSkyProvider()
 	{

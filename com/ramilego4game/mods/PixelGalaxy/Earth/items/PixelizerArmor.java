@@ -1,7 +1,8 @@
 package com.ramilego4game.mods.PixelGalaxy.Earth.items;
 
-import net.minecraft.client.renderer.texture.IconRegister;
+import micdoodle8.mods.galacticraft.api.item.IBreathableArmor;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;

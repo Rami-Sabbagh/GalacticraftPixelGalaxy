@@ -6,15 +6,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
 
-import com.ramilego4game.mods.PixelGalaxy.Earth.GalacticraftPixelEarth;
+public class DirtBlock extends Block implements ITerraformableBlock, IPlantableBlock{
 
-public class GreenBlock extends Block implements ITerraformableBlock, IPlantableBlock{
-
-	public GreenBlock(int id, Material material) {
+	public DirtBlock(int id, Material material) {
 		super(id, material);
-		setCreativeTab(GalacticraftPixelEarth.tabPEarth);
 	}
-
+	
 	@Override
 	public boolean isTerraformable(World world, int x, int y, int z) {
 		return true;
@@ -22,17 +19,11 @@ public class GreenBlock extends Block implements ITerraformableBlock, IPlantable
 
 	@Override
 	public int requiredLiquidBlocksNearby() {
-		return 0;
+		return 1;
 	}
 
 	@Override
 	public boolean isPlantable(int metadata) {
-		if (metadata >= 5 && metadata <= 13)
-		{
-			return true;
-		}
-
-		return false;
+		return true;
 	}
-
 }
