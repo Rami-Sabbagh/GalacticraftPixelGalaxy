@@ -1,0 +1,24 @@
+planet.greenpixel=Green Pixel
+
+tile.greenGrass.name=Green Grass
+tile.pixelDirt.name=Pixel Dirt
+tile.pixelStone.name=Pixel Stone
+
+tile.pixelizerOre.name=Pixelizer Ore
+tile.pixelizerBlock.name=Pixelizer Block
+
+item.pixelizerIngot.name=Pixelizer Ingot
+
+item.pixelizerSword.name=Pixelizer Sword
+item.pixelizerHoe.name=Pixelizer Hoe
+item.pixelizerPickaxe.name=Pixelizer Pickaxe
+item.pixelizerShovel.name=Pixelizer Shovel
+item.pixelizerAxe.name=Pixelizer Axe
+
+item.pixelizerHelmet=Pixelizer Helmet
+item.pixelizerChestplate=Pixelizer Chestplate
+item.pixelizerLeggings=Pixelizer Leggings
+item.pixelizerBoots=Pixelizer Boots
+
+itemGroup.PixelBlocksTab=Pixel Blocks
+itemGroup.PixelItemsTab=Pixel Items
