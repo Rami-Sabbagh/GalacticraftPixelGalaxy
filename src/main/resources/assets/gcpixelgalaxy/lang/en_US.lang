@@ -1,11 +1,21 @@
+solarsystem.lostpixel=Lost Pixel
 planet.greenpixel=Green Pixel
 
 tile.greenGrass.name=Green Grass
 tile.pixelDirt.name=Pixel Dirt
 tile.pixelStone.name=Pixel Stone
 
+tile.pixelOak.name=Pixel Oak
+tile.pixelWoodBlock_0.name=Pixel Wood Block Level 1
+tile.pixelWoodBlock_1.name=Pixel Wood Block Level 2
+tile.pixelWoodBlock_2.name=Pixel Wood Block Level 3
+tile.pixelWoodBlock_3.name=Pixel Wood Block Level 4
+tile.pixelWoodBlock_4.name=Pixel Wood Block Level 5
+
 tile.pixelizerOre.name=Pixelizer Ore
 tile.pixelizerBlock.name=Pixelizer Block
+
+item.pixelWoodItem.name=Pixel Wood
 
 item.pixelizerIngot.name=Pixelizer Ingot
 
