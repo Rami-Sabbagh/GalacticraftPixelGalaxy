@@ -23,10 +23,16 @@ public class PixelGalaxyItems {
 	public static Item pixelizerLeggings;
 	public static Item pixelizerBoots;
 	
+	public static Item pixelWoodItem;
+	
 	static ToolMaterial pixelizerToolMaterial = EnumHelper.addToolMaterial("pixelizerToolMaterial", 4, 2000, 10.0f, 4.0f, 15);
 	static ArmorMaterial pixelizerArmorMaterial = EnumHelper.addArmorMaterial("pixelizerArmorMaterial", 44, new int[]{4, 9, 7, 4}, 15);
 	
 	public static void registerItems(){
+		
+		pixelWoodItem = new PixelWood().setUnlocalizedName("pixelWoodItem").setTextureName(Constants.TEXTURE_PREFIX + "pixelWoodItem");
+		
+		GameRegistry.registerItem(pixelWoodItem, "pixelWoodItem");
 		
 		pixelizerIngot = new PixelItem().setUnlocalizedName("pixelizerIngot").setTextureName(Constants.TEXTURE_PREFIX + "pixelizerIngot");
 		

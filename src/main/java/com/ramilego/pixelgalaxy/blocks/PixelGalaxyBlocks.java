@@ -13,6 +13,9 @@ public class PixelGalaxyBlocks {
 	public static Block pixelDirt;
 	public static Block pixelStone;
 	
+	public static Block pixelOak;
+	public static Block pixelWoodBlock;
+	
 	public static Block pixelizerOre;
 	public static Block pixelizerBlock;
 	
@@ -26,12 +29,18 @@ public class PixelGalaxyBlocks {
 		GameRegistry.registerBlock(pixelizerOre, "pixelizerOre");
 		GameRegistry.registerBlock(pixelizerBlock, "pixelizerBlock");
 		
-		greenGrass = new GrassPixelBlock(Material.grass,Constants.TEXTURE_PREFIX + "pixelgrass").setHardness(0.6f).setStepSound(Block.soundTypeGrass).setBlockName("greenGrass");
+		greenGrass = new GrassPixelBlock(Material.grass).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelgrass").setHardness(0.6f).setStepSound(Block.soundTypeGrass).setBlockName("greenGrass");
 		pixelDirt = new NormalPixelBlock(Material.ground).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixeldirt").setHardness(0.6f).setStepSound(Block.soundTypeGravel).setBlockName("pixelDirt");
 		pixelStone = new NormalPixelBlock(Material.rock).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelstone").setHardness(0.6f).setStepSound(Block.soundTypeStone).setBlockName("pixelStone");
 		
 		GameRegistry.registerBlock(greenGrass, "greenGrass");
 		GameRegistry.registerBlock(pixelDirt, "pixelDirt");
 		GameRegistry.registerBlock(pixelStone, "pixelStone");
+		
+		pixelOak = new OakPixelBlock(Material.wood).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixeloak").setHardness(2.0f).setStepSound(Block.soundTypeWood).setBlockName("pixelOak");
+		pixelWoodBlock = new WoodPixelBlock(Material.wood).setStepSound(Block.soundTypeWood).setBlockName("pixelWoodBlock");
+		
+		GameRegistry.registerBlock(pixelOak, "pixelOak");
+		GameRegistry.registerBlock(pixelWoodBlock, ItemBlockMetaBlock.class, "pixelWoodBlock");
 	}
 }
