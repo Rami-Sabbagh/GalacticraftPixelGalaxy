@@ -14,15 +14,11 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class GrassPixelBlock extends Block {
-
-	private String TN;
-
-	public GrassPixelBlock(Material material,String texturen) {
+public class GrassPixelBlock extends NormalPixelBlock {
+	public GrassPixelBlock(Material material) {
 		super(material);
-		setCreativeTab(PixelCreativeTab.PixelBlocksTab);
-		TN = texturen;
 	}
+	
 	@SideOnly(Side.CLIENT)
 	public static IIcon topIcon;
 	@SideOnly(Side.CLIENT)
@@ -33,9 +29,9 @@ public class GrassPixelBlock extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister icon){
-		topIcon = icon.registerIcon(TN + "_top");
-		bottomIcon = icon.registerIcon(TN + "_bottom");
-		sideIcon = icon.registerIcon(TN + "_side");
+		topIcon = icon.registerIcon(this.getTextureName() + "_top");
+		bottomIcon = icon.registerIcon(this.getTextureName() + "_bottom");
+		sideIcon = icon.registerIcon(this.getTextureName() + "_side");
 	}
 	
 	@Override
