@@ -118,6 +118,13 @@ public class PixelRecipes {
 				"PPP",
 				'P', PixelGalaxyItems.pixelizerIngot
 			});
+		//Pixel Wood Block Level 0:
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyBlocks.pixelWoodBlock, 1), new Object[]{
+					"WW ",
+					"WW ",
+					"   ",
+					'W', PixelGalaxyItems.pixelWoodItem
+				});
 			
 			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.pixelizerIngot, 9), new Object[]{ PixelGalaxyBlocks.pixelizerBlock });
 	}

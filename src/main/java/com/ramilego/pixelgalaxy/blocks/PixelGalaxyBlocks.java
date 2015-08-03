@@ -13,7 +13,10 @@ public class PixelGalaxyBlocks {
 	public static Block pixelDirt;
 	public static Block pixelStone;
 	
+	public static Block pixelLeaves;
+	
 	public static Block pixelOak;
+	public static Block pixelLog;
 	public static Block pixelWoodBlock;
 	
 	public static Block pixelizerOre;
@@ -37,10 +40,16 @@ public class PixelGalaxyBlocks {
 		GameRegistry.registerBlock(pixelDirt, "pixelDirt");
 		GameRegistry.registerBlock(pixelStone, "pixelStone");
 		
-		pixelOak = new OakPixelBlock(Material.wood).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixeloak").setHardness(2.0f).setStepSound(Block.soundTypeWood).setBlockName("pixelOak");
+		pixelLeaves = new LeavesPixelBlock().setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelleaves").setBlockName("pixelLeaves");
+		
+		GameRegistry.registerBlock(pixelLeaves, "pixelLeaves");
+		
+		pixelOak = new OakPixelBlockOld(Material.wood).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixeloak").setHardness(2.0f).setStepSound(Block.soundTypeWood).setBlockName("pixelOak");
+		pixelLog = new OakPixelBlock().setBlockTextureName(Constants.TEXTURE_PREFIX + "pixellog").setBlockName("pixelLog");
 		pixelWoodBlock = new WoodPixelBlock(Material.wood).setStepSound(Block.soundTypeWood).setBlockName("pixelWoodBlock");
 		
 		GameRegistry.registerBlock(pixelOak, "pixelOak");
+		GameRegistry.registerBlock(pixelLog, "pixelLog");
 		GameRegistry.registerBlock(pixelWoodBlock, ItemBlockMetaBlock.class, "pixelWoodBlock");
 	}
 }

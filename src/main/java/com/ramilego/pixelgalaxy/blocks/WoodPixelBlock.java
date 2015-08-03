@@ -14,6 +14,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class WoodPixelBlock extends NormalPixelBlock {	
@@ -33,6 +34,11 @@ public class WoodPixelBlock extends NormalPixelBlock {
 	public WoodPixelBlock(Material material) {
 		super(material);
 		this.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelwood");
+	}
+	
+	@Override
+	public int damageDropped(int meta) {
+	    return meta;
 	}
 	
 	@Override
@@ -86,7 +92,18 @@ public class WoodPixelBlock extends NormalPixelBlock {
 	@Override
     public boolean renderAsNormalBlock()
     {
-        return false;
+        return true;
     }
+	
+	@Override
+	public boolean isNormalCube(){
+		return true;
+	}
+	
+	@Override
+	public boolean isNormalCube(IBlockAccess world, int x, int y, int z){
+		int thisMeta = world.getBlockMetadata(x, y, z);
+		if (thisMeta > 3) { return true; } else { return false; }
+	}
 	
 }

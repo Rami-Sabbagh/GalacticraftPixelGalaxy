@@ -2,6 +2,7 @@ package com.ramilego.pixelgalaxy.world.gen;
 
 import micdoodle8.mods.galacticraft.core.entities.EntityEvolvedSpider;
 import micdoodle8.mods.galacticraft.core.entities.EntityEvolvedZombie;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GreenPixelBiomes extends BiomeGenBase {
@@ -12,11 +13,12 @@ public class GreenPixelBiomes extends BiomeGenBase {
 	GreenPixelBiomes(int var1)
     {
         super(var1);
-        this.spawnableMonsterList.clear();
+        /*this.spawnableMonsterList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCreatureList.clear();
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityCow.class, 10, 4, 12));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityEvolvedZombie.class, 10, 4, 4));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityEvolvedSpider.class, 10, 4, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityEvolvedSpider.class, 10, 4, 4));*/
         this.rainfall = 0F;
     }
 
@@ -29,6 +31,6 @@ public class GreenPixelBiomes extends BiomeGenBase {
     @Override
     public float getSpawningChance()
     {
-        return 0.01F;
+        return 0.1F;
     }
 }
