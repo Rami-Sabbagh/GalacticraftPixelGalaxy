@@ -23,17 +23,25 @@ public class PixelGalaxyBlocks {
 	public static Block pixelizerBlock;
 	public static Block pixelizerDiamondOre;
 	public static Block pixelizerdiamondBlock;
+	public static Block pixelIronOre;
+	public static Block pixelIronBlock;
 	
 	public static void registerBlocks(){
 		pixelizerOre = new NormalPixelBlock(Material.rock).setBlockName("pixelizerOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelizerOre").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
 		pixelizerOre.setHarvestLevel("pickaxe", 2);
-		pixelizerDiamondOre = new NormalPixelBlock(Material.rock).setBlockName("pixelizerDiamondOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamond_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
+		pixelizerDiamondOre = new DiamondPixelBlock(Material.rock).setBlockName("pixelizerDiamondOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamond_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
 		pixelizerDiamondOre.setHarvestLevel("pickaxe", 2);
 		pixelizerBlock = new NormalPixelBlock(Material.rock).setBlockName("pixelizerBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelizerBlock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelizerBlock.setHarvestLevel("pickaxe", 0);
 		pixelizerdiamondBlock = new NormalPixelBlock(Material.rock).setBlockName("DiamondPixelBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamondBlock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelizerdiamondBlock.setHarvestLevel("pickaxe", 0);
+		pixelIronOre = new NormalPixelBlock(Material.rock).setBlockName("pixelIronOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "iron_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
+		pixelIronOre.setHarvestLevel("pickaxe", 1);
+		pixelIronBlock = new NormalPixelBlock(Material.rock).setBlockName("pixelIronBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "Ironblock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
+		pixelIronBlock.setHarvestLevel("pickaxe", 0);
 		
+		GameRegistry.registerBlock(pixelIronBlock, "pixelIronBlock");
+		GameRegistry.registerBlock(pixelIronOre, "pixelIronOre");
 		GameRegistry.registerBlock(pixelizerdiamondBlock, "DiamondPixelBlock");
 		GameRegistry.registerBlock(pixelizerBlock, "pixelizerBlock");
 		GameRegistry.registerBlock(pixelizerOre, "pixelizerOre");

@@ -12,6 +12,7 @@ public class PixelGalaxyItems {
 	
 	public static Item pixelizerIngot;
 	public static Item diamondPixel;
+	public static Item ironPixelIngot;
 	
 	//pixelizer tools
 	public static Item pixelizerSword;
@@ -27,18 +28,33 @@ public class PixelGalaxyItems {
 	public static Item diamondPixelShovel;
 	public static Item diamondPixelAxe;
 	
+	//ironPixel tools
+	public static Item ironPixelSword;
+	public static Item ironPixelHoe;
+	public static Item ironPixelPickaxe;
+	public static Item ironPixelShovel;
+	public static Item ironPixelAxe;
+	
 	//pixelizer Armors
 	public static Item pixelizerHelmet;
 	public static Item pixelizerChestplate;
 	public static Item pixelizerLeggings;
 	public static Item pixelizerBoots;
 	
+	//diamondpixel armor
+	public static Item diamondPixelHelmet;
+	public static Item diamondPixelChestplate;
+	public static Item diamondPixelLeggings;
+	public static Item diamondPixelBoots;
+	
 	public static Item pixelWoodItem;
 	public static Item pixelWoodStickItem;
 	
+	static ToolMaterial ironPixelToolMaterial = EnumHelper.addToolMaterial("ironPixelToolMaterial", 4, 2000, 10.0f, 4.0f, 15);
 	static ToolMaterial diamondPixelToolMaterial = EnumHelper.addToolMaterial("diamondPixelToolMaterial", 4, 2000, 10.0f, 4.0f, 15);
 	static ToolMaterial pixelizerToolMaterial = EnumHelper.addToolMaterial("pixelizerToolMaterial", 4, 2000, 10.0f, 4.0f, 15);
 	static ArmorMaterial pixelizerArmorMaterial = EnumHelper.addArmorMaterial("pixelizerArmorMaterial", 44, new int[]{4, 9, 7, 4}, 15);
+	static ArmorMaterial diamondPixelMaterial = EnumHelper.addArmorMaterial("diamondPixelMaterial", 44, new int[]{4, 9, 7, 4}, 15);
 	
 	public static void registerItems(){
 		
@@ -50,7 +66,9 @@ public class PixelGalaxyItems {
 		
 		pixelizerIngot = new PixelItem().setUnlocalizedName("pixelizerIngot").setTextureName(Constants.TEXTURE_PREFIX + "pixelizerIngot");
 		diamondPixel = new PixelItem().setUnlocalizedName("diamondPixel").setTextureName(Constants.TEXTURE_PREFIX + "diamondpixel");
+		ironPixelIngot = new PixelItem().setUnlocalizedName("ironPixelIngot").setTextureName(Constants.TEXTURE_PREFIX + "ironPixelIngot");
 		
+		GameRegistry.registerItem(ironPixelIngot, "ironPixelIngot");
 		GameRegistry.registerItem(diamondPixel, "diamondPixel");
 		GameRegistry.registerItem(pixelizerIngot, "pixelizerIngot");
 		
@@ -66,6 +84,17 @@ public class PixelGalaxyItems {
 		diamondPixelShovel = new PixelShovel(diamondPixelToolMaterial).setUnlocalizedName("diamondPixelShovel").setTextureName(Constants.TEXTURE_PREFIX + "diamondPixelShovel");
 		diamondPixelAxe = new PixelAxe(diamondPixelToolMaterial).setUnlocalizedName("diamondPixelAxe").setTextureName(Constants.TEXTURE_PREFIX + "diamondPixelAxe");
 		
+		ironPixelSword = new PixelSword(ironPixelToolMaterial).setUnlocalizedName("ironPixelSword").setTextureName(Constants.TEXTURE_PREFIX + "ironPixelSword");
+		ironPixelHoe = new PixelHoe(ironPixelToolMaterial).setUnlocalizedName("ironPixelHoe").setTextureName(Constants.TEXTURE_PREFIX + "ironPixelHoe");
+		ironPixelPickaxe = new PixelPickaxe(ironPixelToolMaterial).setUnlocalizedName("ironPixelPickaxe").setTextureName(Constants.TEXTURE_PREFIX + "ironPixelpickaxe");
+		ironPixelShovel = new PixelShovel(ironPixelToolMaterial).setUnlocalizedName("ironPixelShovel").setTextureName(Constants.TEXTURE_PREFIX + "ironPixelShovel");
+		ironPixelAxe = new PixelAxe(ironPixelToolMaterial).setUnlocalizedName("ironPixelAxe").setTextureName(Constants.TEXTURE_PREFIX + "ironPixelAxe");
+		
+		GameRegistry.registerItem(ironPixelSword, "ironPixelSword");
+		GameRegistry.registerItem(ironPixelHoe, "ironPixelHoe");
+		GameRegistry.registerItem(ironPixelPickaxe, "ironPixelPickaxe");
+		GameRegistry.registerItem(ironPixelShovel, "ironPixelShovel");
+		GameRegistry.registerItem(ironPixelAxe, "ironPixelAxe");
 		GameRegistry.registerItem(pixelizerSword, "pixelizerSword");
 		GameRegistry.registerItem(pixelizerHoe, "pixelizerHoe");
 		GameRegistry.registerItem(pixelizerPickaxe, "pixelizerPickaxe");
@@ -81,6 +110,16 @@ public class PixelGalaxyItems {
 		pixelizerChestplate = new PixelizerArmor(pixelizerArmorMaterial, 3, 1).setUnlocalizedName("pixelizerChestplate").setTextureName(Constants.TEXTURE_PREFIX + "pixelizerChestplate");
 		pixelizerLeggings = new PixelizerArmor(pixelizerArmorMaterial, 3, 2).setUnlocalizedName("pixelizerLeggings").setTextureName(Constants.TEXTURE_PREFIX + "pixelizerLeggings");
 		pixelizerBoots = new PixelizerArmor(pixelizerArmorMaterial, 3, 3).setUnlocalizedName("pixelizerBoots").setTextureName(Constants.TEXTURE_PREFIX + "pixelizerBoots");
+		
+		diamondPixelHelmet = new DiamondPixelArmor(diamondPixelMaterial, 3, 0).setUnlocalizedName("diamondPixelHelmet").setTextureName(Constants.TEXTURE_PREFIX + "diamondPixelHelmet");
+		diamondPixelChestplate = new DiamondPixelArmor(diamondPixelMaterial, 3, 1).setUnlocalizedName("diamondPixelChestplate").setTextureName(Constants.TEXTURE_PREFIX + "diamondPixelChestplate");
+		diamondPixelLeggings = new DiamondPixelArmor(diamondPixelMaterial, 3, 2).setUnlocalizedName("diamondPixelLeggings").setTextureName(Constants.TEXTURE_PREFIX + "diamondPixelLeggings");
+		diamondPixelBoots = new DiamondPixelArmor(diamondPixelMaterial, 3, 3).setUnlocalizedName("diamondPixelBoots").setTextureName(Constants.TEXTURE_PREFIX + "diamondPixelBoots");
+		
+		GameRegistry.registerItem(diamondPixelHelmet, "diamondPixelHelmet");
+		GameRegistry.registerItem(diamondPixelChestplate, "diamondPixelChestplate");
+		GameRegistry.registerItem(diamondPixelLeggings, "diamondPixelLeggings");
+		GameRegistry.registerItem(diamondPixelBoots, "diamondPixelBoots");
 		
 		GameRegistry.registerItem(pixelizerHelmet, "pixelizerHelmet");
 		GameRegistry.registerItem(pixelizerChestplate, "pixelizerChestplate");

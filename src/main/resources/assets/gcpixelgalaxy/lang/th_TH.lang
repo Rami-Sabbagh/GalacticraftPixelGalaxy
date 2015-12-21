@@ -13,6 +13,7 @@ tile.pixelDirt.name=บล็อกดินจากดาวพิกเซล
 tile.pixelStone.name=บล็อกหินจากดาวพิกเซล
 tile.pixelizerOre.name=แร่พิกเซลล้า
 tile.pixelizerDiamondOre.name=แร่เพชรพิกเซล
+tile.pixelIronOre.name=แร่เหล็กพิกเซล
 
 ##########leaves , log and wood##########
 tile.pixelLeaves=ใบไม้จากดาวพิกเซล
@@ -23,18 +24,21 @@ tile.pixelWoodBlock_1.name=บล็อกไม้ชั้นที่2
 tile.pixelWoodBlock_2.name=บล็อกไม้ชั้นที่3
 tile.pixelWoodBlock_3.name=บล็อกไม้ชั้นที่4
 tile.pixelWoodBlock_4.name=บล็อกไม้ชั้นที่5
-item.pixelWoodStick.name=แท่งไม้จาก ไม้พิกเซล
+
 
 ########## MAXED BLOCK ##########
 tile.pixelizerBlock.name=บล็อกพิกเซลล้า
 tile.DiamondPixelBlock.name=บล็อกเพชรพิกเซล
+tile.pixelIronBlock.name=บล็อกเหล็กพิกเซล
 
 ########## Item ##########
 item.pixelWoodItem.name=ไม้พิกเซล
+item.pixelWoodStick.name=แท่งไม้จาก ไม้พิกเซล
 
 ########## ingot ore ##########
 item.pixelizerIngot.name=แท่งพิกเซลล้า
 item.diamondPixel.name=เพชรพืกเซล
+item.ironPixelIngot.name=แท่งเหล็กพิกเซล
 
 ########## Tools ##########
 item.pixelizerSword.name=ดาปพิกเซลล้า
@@ -49,11 +53,22 @@ item.diamondPixelPickaxe.nameที่ขุดเพชรพิกเซล
 item.diamondPixelShovel.name=พลั่วเพชรพิกเซล
 item.diamondPixelAxe.name=ขวานเพชรพิกเซล
 
+item.ironPixelSword.name=ดาปเหล็กพิกเซล
+item.ironPixelHoe.name=จอบเหล็กพิกเซล
+item.ironPixelPickaxe.name=ที่ขุดเหล็กพิกเซล
+item.ironPixelShovel.name=พลั่วเหล็กพิกเซล
+item.ironPixelAxe.name=ขวานเหล็กพิกเซล
+
 ########## outfit ##########
 item.pixelizerHelmet=หมวกพิกเซลล้า
 item.pixelizerChestplate=เสื้อเกาะพิกเซลล้า
 item.pixelizerLeggings=กางเกงพิกเซลล้า
 item.pixelizerBoots=รองเท้าพิกเซลล้า
+
+item.diamondPixelHelmet.name=หมวกเพชรพืกเซล
+item.diamondPixelChestplate.name=เสื้อเกาะเพชรพืกเซล
+item.diamondPixelLeggings.name=กางเกงเพชรพืกเซล
+item.diamondPixelBoots.name=รองเท้าเพชรพืกเซล
 
 ########## Creative custom bar ##########
 itemGroup.PixelBlocksTab=บล็อกพิกเซล (ของเสริมGC)
