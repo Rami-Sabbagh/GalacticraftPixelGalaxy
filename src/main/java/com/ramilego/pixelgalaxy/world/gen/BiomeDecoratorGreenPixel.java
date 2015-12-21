@@ -16,6 +16,7 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
     private WorldGenerator ironGen;
     private WorldGenerator iceGen;*/
 	private WorldGenerator pixelizerGen;
+	private WorldGenerator diamondPixelGen;
 	
     private World currentWorld;
 
@@ -31,6 +32,7 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
     	//WorldGenMinableMeta(Block OreBlock, int numberOfBlocks, int OreMeta, boolean usingMetaData, Block StoneBlock, int StoneMeta);
     	
     	this.pixelizerGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelizerOre, 6, 1, false, PixelGalaxyBlocks.pixelStone, 1);
+    	this.diamondPixelGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelizerDiamondOre, 6, 1, false, PixelGalaxyBlocks.pixelStone, 1);
     }
 
 	@Override
@@ -55,6 +57,7 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
 		//generateOre(int amountPerChunk, WorldGenerator worldGenerator, int minY, int maxY);
 		
 		this.generateOre(15, this.pixelizerGen, 20, 64);
+		this.generateOre(15, this.diamondPixelGen, 3, 10);
 	}
 
 }

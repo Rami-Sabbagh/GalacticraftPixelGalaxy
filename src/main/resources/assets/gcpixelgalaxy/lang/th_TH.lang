@@ -1,5 +1,5 @@
 ##########Galaxy##########
-solarsystem.lostpixel=พิกเซลที่หายไป
+solarsystem.lostpixel=ระบบพิกเซลที่หายไป
 
 ##########Planets##########
 planet.greenpixel=พิกเซลสีเขียว
@@ -12,6 +12,7 @@ tile.greenGrass.name=บล็อกหญ้าสีเขียว
 tile.pixelDirt.name=บล็อกดินจากดาวพิกเซล
 tile.pixelStone.name=บล็อกหินจากดาวพิกเซล
 tile.pixelizerOre.name=แร่พิกเซลล้า
+tile.pixelizerDiamondOre.name=แร่เพชรพิกเซล
 
 ##########leaves , log and wood##########
 tile.pixelLeaves=ใบไม้จากดาวพิกเซล
@@ -22,15 +23,18 @@ tile.pixelWoodBlock_1.name=บล็อกไม้ชั้นที่2
 tile.pixelWoodBlock_2.name=บล็อกไม้ชั้นที่3
 tile.pixelWoodBlock_3.name=บล็อกไม้ชั้นที่4
 tile.pixelWoodBlock_4.name=บล็อกไม้ชั้นที่5
+item.pixelWoodStick.name=แท่งไม้จาก ไม้พิกเซล
 
 ########## MAXED BLOCK ##########
 tile.pixelizerBlock.name=บล็อกพิกเซลล้า
+tile.DiamondPixelBlock.name=บล็อกเพชรพิกเซล
 
 ########## Item ##########
 item.pixelWoodItem.name=ไม้พิกเซล
 
 ########## ingot ore ##########
 item.pixelizerIngot.name=แท่งพิกเซลล้า
+item.diamondPixel.name=เพชรพืกเซล
 
 ########## Tools ##########
 item.pixelizerSword.name=ดาปพิกเซลล้า
@@ -38,6 +42,12 @@ item.pixelizerHoe.name=จอบพิกเซลล้า
 item.pixelizerPickaxe.name=ที่ขุดพิกเซลล้า
 item.pixelizerShovel.name=พลั่วพิกเซลล้า
 item.pixelizerAxe.name=ขวานพิกเซลล้า
+
+item.diamondPixelSword.name=ดาปเพชรพิกเซล
+item.diamondPixelHoe.name=ชอบเพชรพิกเซล
+item.diamondPixelPickaxe.nameที่ขุดเพชรพิกเซล
+item.diamondPixelShovel.name=พลั่วเพชรพิกเซล
+item.diamondPixelAxe.name=ขวานเพชรพิกเซล
 
 ########## outfit ##########
 item.pixelizerHelmet=หมวกพิกเซลล้า
@@ -48,15 +58,3 @@ item.pixelizerBoots=รองเท้าพิกเซลล้า
 ########## Creative custom bar ##########
 itemGroup.PixelBlocksTab=บล็อกพิกเซล (ของเสริมGC)
 itemGroup.PixelItemsTab=ไอเท็มพิกเซล (ของเสริมGC)
-
-
-   _____   translate by                          
-  / ____|                            
- | |     __ _ _ __  _ __   ___  __ _ 
- | |    / _` | '_ \| '_ \ / _ \/ _` |
- | |___| (_| | | | | |_) |  __/ (_| |
-  \_____\__,_|_| |_| .__/ \___|\__,_|
-                   | |               
-                   |_|           
-   Thank you RamiLego4Game
-I very like you job!^^ and I want to be your team^^  

@@ -17,7 +17,7 @@ public class PixelRecipes {
 				" P ",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick});
+				'S', PixelGalaxyItems.pixelWoodStickItem});
 			
 			//Pixelizer Hoe
 			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelizerHoe, 1), new Object[]{
@@ -25,7 +25,7 @@ public class PixelRecipes {
 				" S ",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick
+				'S', PixelGalaxyItems.pixelWoodStickItem
 			});
 			
 			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelizerHoe, 1), new Object[]{
@@ -33,7 +33,7 @@ public class PixelRecipes {
 				" S ",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick
+				'S', PixelGalaxyItems.pixelWoodStickItem
 			});
 			
 			//Pixelizer Pickaxe
@@ -42,7 +42,7 @@ public class PixelRecipes {
 				" S ",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick
+				'S', PixelGalaxyItems.pixelWoodStickItem
 			});
 			
 			//Pixelizer Shovel
@@ -51,7 +51,7 @@ public class PixelRecipes {
 				" S ",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick
+				'S', PixelGalaxyItems.pixelWoodStickItem
 			});
 			
 			//Pixelizer Axe
@@ -60,17 +60,80 @@ public class PixelRecipes {
 				" SP",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick
+				'S', PixelGalaxyItems.pixelWoodStickItem
 			});
 			
+			//Pixelizer Axe
 			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelizerAxe, 1), new Object[]{
 				"PP ",
 				"PS ",
 				" S ",
 				'P', PixelGalaxyItems.pixelizerIngot,
-				'S', Items.stick
+				'S', PixelGalaxyItems.pixelWoodStickItem
 			});
-		
+			
+			//diamondPixel Sword
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelSword, 1), new Object[]{
+				" D ",
+				" D ",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
+			//diamondPixel Hoe
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelHoe, 1), new Object[]{
+				"DD ",
+				" S ",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
+			//diamondPixel Hoe
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelHoe, 1), new Object[]{
+				" DD",
+				" S ",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
+			//diamondPixel Pickaxe
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelPickaxe, 1), new Object[]{
+				"DDD",
+				" S ",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
+			//diamondPixel Shovel
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelShovel, 1), new Object[]{
+				" D ",
+				" S ",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
+			//diamondPixel Axe
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelAxe, 1), new Object[]{
+				" DD",
+				" SD",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.diamondPixelAxe, 1), new Object[]{
+				"DD ",
+				"DS ",
+				" S ",
+				'D', PixelGalaxyItems.diamondPixel,
+				'S', PixelGalaxyItems.pixelWoodStickItem
+			});
+			
 		//Armors:
 			//Pixelizer Helmet
 			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelizerHelmet, 1), new Object[]{
@@ -118,6 +181,14 @@ public class PixelRecipes {
 				"PPP",
 				'P', PixelGalaxyItems.pixelizerIngot
 			});
+		//diamondPixel Block
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyBlocks.pixelizerdiamondBlock, 1), new Object[]{
+				"DDD",
+				"DDD",
+				"DDD",
+				'D', PixelGalaxyItems.diamondPixel
+			});
+			
 		//Pixel Wood Block Level 0:
 			GameRegistry.addRecipe(new ItemStack(PixelGalaxyBlocks.pixelWoodBlock, 1), new Object[]{
 					"WW ",
@@ -127,9 +198,12 @@ public class PixelRecipes {
 				});
 			
 			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.pixelizerIngot, 9), new Object[]{ PixelGalaxyBlocks.pixelizerBlock });
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.diamondPixel, 9), new Object[]{ PixelGalaxyBlocks.pixelizerdiamondBlock });
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{ PixelGalaxyItems.pixelWoodItem });
 	}
 	
 	public static void registerSmeltingRecipes(){
 		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelizerOre, new ItemStack(PixelGalaxyItems.pixelizerIngot, 1), 1.0F);
+		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelizerDiamondOre, new ItemStack(PixelGalaxyItems.diamondPixel, 1), 1.0F);
 	}
 }

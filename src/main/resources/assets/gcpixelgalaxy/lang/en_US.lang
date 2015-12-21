@@ -1,12 +1,21 @@
+##########Galaxy##########
 solarsystem.lostpixel=Lost Pixel
+
+##########Planets##########
 planet.greenpixel=Green Pixel
 
+##########Star##########
+star.pixel=Star of Pixel
+
+##########Ore , grass and stone ##########
 tile.greenGrass.name=Green Grass
 tile.pixelDirt.name=Pixel Dirt
 tile.pixelStone.name=Pixel Stone
+tile.pixelizerOre.name=Pixelizer Ore
+tile.pixelizerDiamondOre.name=DiamondPixel Ore
 
+##########leaves , log and wood##########
 tile.pixelLeaves=Pixel Leaves
-
 tile.pixelOak.name=Pixel Oak
 tile.pixelLog.name=Pixel Log
 tile.pixelWoodBlock_0.name=Pixel Wood Block Level 1
@@ -14,24 +23,38 @@ tile.pixelWoodBlock_1.name=Pixel Wood Block Level 2
 tile.pixelWoodBlock_2.name=Pixel Wood Block Level 3
 tile.pixelWoodBlock_3.name=Pixel Wood Block Level 4
 tile.pixelWoodBlock_4.name=Pixel Wood Block Level 5
+item.pixelWoodStick.name=Stick of PixelWood
 
-tile.pixelizerOre.name=Pixelizer Ore
+########## MAXED BLOCK ##########
 tile.pixelizerBlock.name=Pixelizer Block
+tile.DiamondPixelBlock.name=DiamondPixel Block
 
+########## Item ##########
 item.pixelWoodItem.name=Pixel Wood
 
+########## ingot ore ##########
 item.pixelizerIngot.name=Pixelizer Ingot
+item.diamondPixel.name=DiamondPixel
 
+########## Tools ##########
 item.pixelizerSword.name=Pixelizer Sword
 item.pixelizerHoe.name=Pixelizer Hoe
 item.pixelizerPickaxe.name=Pixelizer Pickaxe
 item.pixelizerShovel.name=Pixelizer Shovel
 item.pixelizerAxe.name=Pixelizer Axe
 
-item.pixelizerHelmet=Pixelizer Helmet
-item.pixelizerChestplate=Pixelizer Chestplate
-item.pixelizerLeggings=Pixelizer Leggings
-item.pixelizerBoots=Pixelizer Boots
+item.diamondPixelSword.name=DiamondPixel Sword
+item.diamondPixelHoe.name=DiamondPixel Hoe
+item.diamondPixelPickaxe.name=DiamondPixel Pickaxe
+item.diamondPixelShovel.name=DiamondPixel Shovel
+item.diamondPixelAxe.name=DiamondPixel Axe
 
+########## outfit ##########
+item.pixelizerHelmet.name=Pixelizer Helmet
+item.pixelizerChestplate.name=Pixelizer Chestplate
+item.pixelizerLeggings.name=Pixelizer Leggings
+item.pixelizerBoots.name=Pixelizer Boots
+
+########## Creative custom bar ##########
 itemGroup.PixelBlocksTab=Pixel Blocks
 itemGroup.PixelItemsTab=Pixel Items

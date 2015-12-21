@@ -21,16 +21,23 @@ public class PixelGalaxyBlocks {
 	
 	public static Block pixelizerOre;
 	public static Block pixelizerBlock;
+	public static Block pixelizerDiamondOre;
+	public static Block pixelizerdiamondBlock;
 	
 	public static void registerBlocks(){
 		pixelizerOre = new NormalPixelBlock(Material.rock).setBlockName("pixelizerOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelizerOre").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
 		pixelizerOre.setHarvestLevel("pickaxe", 2);
-		
+		pixelizerDiamondOre = new NormalPixelBlock(Material.rock).setBlockName("pixelizerDiamondOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamond_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
+		pixelizerDiamondOre.setHarvestLevel("pickaxe", 2);
 		pixelizerBlock = new NormalPixelBlock(Material.rock).setBlockName("pixelizerBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelizerBlock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelizerBlock.setHarvestLevel("pickaxe", 0);
+		pixelizerdiamondBlock = new NormalPixelBlock(Material.rock).setBlockName("DiamondPixelBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamondBlock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
+		pixelizerdiamondBlock.setHarvestLevel("pickaxe", 0);
 		
-		GameRegistry.registerBlock(pixelizerOre, "pixelizerOre");
+		GameRegistry.registerBlock(pixelizerdiamondBlock, "DiamondPixelBlock");
 		GameRegistry.registerBlock(pixelizerBlock, "pixelizerBlock");
+		GameRegistry.registerBlock(pixelizerOre, "pixelizerOre");
+		GameRegistry.registerBlock(pixelizerDiamondOre, "DiamondPixelOre");
 		
 		greenGrass = new GrassPixelBlock(Material.grass).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelgrass").setHardness(0.6f).setStepSound(Block.soundTypeGrass).setBlockName("greenGrass");
 		pixelDirt = new NormalPixelBlock(Material.ground).setBlockTextureName(Constants.TEXTURE_PREFIX + "pixeldirt").setHardness(0.6f).setStepSound(Block.soundTypeGravel).setBlockName("pixelDirt");
