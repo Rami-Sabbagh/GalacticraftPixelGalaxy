@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 public class PixelCreativeTab {
 	public static CreativeTabs PixelBlocksTab = new CreativeTabs("PixelBlocksTab"){@Override public Item getTabIconItem() {return Item.getItemFromBlock(PixelGalaxyBlocks.greenGrass);}};
 	public static CreativeTabs PixelItemsTab = new CreativeTabs("PixelItemsTab"){@Override public Item getTabIconItem() {return PixelGalaxyItems.pixelizerPickaxe;}};
-	
+	public static CreativeTabs PixelFoodsTab = new CreativeTabs("PixelFoodsTab"){@Override public Item getTabIconItem() {return PixelGalaxyItems.pixelRiceBread;}};
 	
 	public static void registerTabs(){
 		

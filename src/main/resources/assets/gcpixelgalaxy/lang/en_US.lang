@@ -14,9 +14,13 @@ tile.pixelStone.name=Pixel Stone
 tile.pixelizerOre.name=Pixelizer Ore
 tile.pixelizerDiamondOre.name=DiamondPixel Ore
 tile.pixelIronOre.name=IronPixel Ore
+tile.FarmlandPixel.name=Pixel Farmland Block
+tile.blueStoneOre.name=BlueStone Ore
+tile.pixelCobblestoneStone.name=Pixel Cobblestone
 
 ##########leaves , log and wood##########
-tile.pixelLeaves=Pixel Leaves
+tile.pixelLeaves.name=Pixel Leaves
+tile.pixelOrangeLeaves.name=Pixel OrangeLeave
 tile.pixelOak.name=Pixel Oak
 tile.pixelLog.name=Pixel Log
 tile.pixelWoodBlock_0.name=Pixel Wood Block Level 1
@@ -25,11 +29,21 @@ tile.pixelWoodBlock_2.name=Pixel Wood Block Level 3
 tile.pixelWoodBlock_3.name=Pixel Wood Block Level 4
 tile.pixelWoodBlock_4.name=Pixel Wood Block Level 5
 
+###########Crop#############
+tile.pixelCarrot.name=Pixel Carrot Crop
+tile.pixelPotato.name=Pixel Potato Crop
+tile.pixelBeetroot.name=Pixel Beetroot Crop
+tile.PixelRice.name=PixelRice Crop
+
+########GAS##########
+tile.PixelNitrogen.name=PixelNitrogen Block
+tile.intensePixelNitrogen.name=Intense PixelNitrogen Block
 
 ########## MAXED BLOCK ##########
 tile.pixelizerBlock.name=Pixelizer Block
 tile.DiamondPixelBlock.name=DiamondPixel Block
 tile.pixelIronBlock.name=IronPixel Block
+tile.GlowingBlueStoneBlock.name=GlowBlueStone Block
 
 ########## Item ##########
 item.pixelWoodItem.name=Pixel Wood
@@ -39,6 +53,7 @@ item.pixelWoodStick.name=Stick of PixelWood
 item.pixelizerIngot.name=Pixelizer Ingot
 item.diamondPixel.name=DiamondPixel
 item.ironPixelIngot.name=IronPixel Ingot
+item.blueStoneIngot.name=BlueStone Ingot
 
 ########## Tools ##########
 item.pixelizerSword.name=Pixelizer Sword
@@ -59,6 +74,18 @@ item.ironPixelPickaxe.name=IronPixel Pickaxe
 item.ironPixelShovel.name=IronPixel Shovel
 item.ironPixelAxe.name=IronPixel Axe
 
+item.woodPixelSword.name=WoodPixel Sword
+item.woodPixelHoe.name=WoodPixel Hoe
+item.woodPixelPickaxe.name=WoodPixel Pickaxe
+item.woodPixelShovel.name=WoodPixel Shovel
+item.woodPixelAxe.name=WoodPixel Axe
+
+item.stonePixelSword.name=StonePixel Sword
+item.stonePixelHoe.name=StonePixel Hoe
+item.stonePixelPickaxe.name=StonePixel Pickaxe
+item.stonePixelShovel.name=StonePixel Shovel
+item.stonePixelAxe.name=StonePixel Axe
+
 ########## outfit ##########
 item.pixelizerHelmet.name=Pixelizer Helmet
 item.pixelizerChestplate.name=Pixelizer Chestplate
@@ -69,6 +96,23 @@ item.diamondPixelHelmet.name=DiamondPixel Helmet
 item.diamondPixelChestplate.name=DiamondPixel Chestplate
 item.diamondPixelLeggings.name=DiamondPixel Leggings
 item.diamondPixelBoots.name=DiamondPixel Boots
+
+item.ironPixelHelmet.name=IronPixel Helmet
+item.ironPixelChestplate.name=IronPixel Chestplate
+item.ironPixelLeggings.name=IronPixel Leggings
+item.ironPixelBoots.name=IronPixel Boots
+
+########## Foods ###########
+item.pixelOrange.name=Pixel OrangeLeave
+item.pixelApple.name=Pixel Apple
+item.pixelCarrot.name=Pixel Carrot
+item.pixelPotato.name=Pixel Potato
+item.pixelBeetroot.name=Pixel Beetroot
+item.pixelRiceBread.name=Pixel Rice Bread
+item.pixelRiceSeed.name=Pixel Rice Seed
+item.pixelRice.name=Pixel Rice
+item.Pixelbowl.name=Pixel Bowl
+item.PixelBeetRootSoup.name=Pixel Beetroot Soup
 
 ########## Creative custom bar ##########
 itemGroup.PixelBlocksTab=Pixel Blocks
