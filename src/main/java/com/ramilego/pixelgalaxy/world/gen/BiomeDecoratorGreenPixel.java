@@ -20,6 +20,7 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
 	private WorldGenerator ironGen;
 	private WorldGenerator nitrogenGen;
 	private WorldGenerator blueStonegen;
+	private WorldGenerator CoalOreGen;
 	
     private World currentWorld;
 
@@ -34,7 +35,7 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
     	
     	//WorldGenMinableMeta(Block OreBlock, int numberOfBlocks, int OreMeta, boolean usingMetaData, Block StoneBlock, int StoneMeta);
     	
-    	
+    	this.CoalOreGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelCoalOre, 15, 5, false, PixelGalaxyBlocks.pixelStone, 1);
     	this.blueStonegen = new WorldGenMinableMeta(PixelGalaxyBlocks.blueStoneOre, 8, 3, false, PixelGalaxyBlocks.pixelStone, 1);
     	this.ironGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelIronOre, 8, 3, false, PixelGalaxyBlocks.pixelStone, 1);
     	this.pixelizerGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelizerOre, 6, 1, false, PixelGalaxyBlocks.pixelStone, 1);
@@ -63,6 +64,7 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
 		
 		//generateOre(int amountPerChunk, WorldGenerator worldGenerator, int minY, int maxY);
 		
+		this.generateOre(15, this.CoalOreGen, 0, 100);
 		this.generateOre(15, this.pixelizerGen, 20, 64);
 		this.generateOre(8, this.diamondPixelGen, 2, 10);
 		this.generateOre(10, this.ironGen, 0, 64);

@@ -1,13 +1,17 @@
 package com.ramilego.pixelgalaxy.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 
 import com.ramilego.pixelgalaxy.Constants;
 import com.ramilego.pixelgalaxy.PixelCreativeTab;
@@ -19,8 +23,12 @@ public class PixelGalaxyItems {
 	public static Item diamondPixel;
 	public static Item ironPixelIngot;
 	public static Item blueStoneIngot;
+    public static Item pixelCharCoal;
     public static Item pixelCoal;
 	
+    //Buckets
+    public static Item pixelWaterH3OBucket;
+    
 	//pixelizer tools
 	public static Item pixelizerSword;
 	public static Item pixelizerHoe;
@@ -77,9 +85,15 @@ public class PixelGalaxyItems {
 	public static Item pixelWoodItem;
 	public static Item pixelWoodStickItem;
 	
-	public static Item pixelRiceSeed;
+	
 	public static Item pixelRice;
 	public static Item pixelRiceBread;
+	
+	
+	//Seeds
+	public static Item pixelPumkinSeed;
+	public static Item pixelRiceSeed;
+	public static Item pixelPeaSeed;
 	
 	//Food
 	public static Item pixelPotato;
@@ -87,9 +101,12 @@ public class PixelGalaxyItems {
 	public static Item pixelBeetroot;
 	public static Item pixelApple;
 	public static Item pixelOrange;
+	public static Item pixelPea;
 	
+	//Soup or Stew
 	public static Item pixelbowl;
 	public static Item pixelbeetrootsoup;
+	public static Item pixelPeaStew;
 	
 	static ToolMaterial woodPixelToolMaterial = EnumHelper.addToolMaterial("stonePixelToolMaterial", 0, 59, 2.0f, 0.0f, 15);
 	static ToolMaterial stonePixelToolMaterial = EnumHelper.addToolMaterial("stonePixelToolMaterial", 1, 131, 4.0f, 1.0f, 5);
@@ -101,6 +118,41 @@ public class PixelGalaxyItems {
 	static ArmorMaterial ironPixelMaterial = EnumHelper.addArmorMaterial("ironPixelMaterial", 15, new int[]{2, 6, 5, 2}, 9);
 	
 	public static void registerItems(){
+		pixelPeaSeed = new PixelItemSeed(PixelGalaxyBlocks.pixelPeaCrop, PixelGalaxyBlocks.FarmlandPixel)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelPeaSeed")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelseedspea");
+		
+		pixelPea = new PixelItemRiceBread("pixelPea", 6, 0.3f, false)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelPea")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelPea");
+		
+		pixelPeaStew = new PixelItemRiceBread("pixelPeaStew", 10, 0.6f, false)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelPea")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelPeaStew");
+		
+		GameRegistry.registerItem(pixelPeaSeed, "pixelPeaSeed");
+		GameRegistry.registerItem(pixelPea, "pixelPea");
+		GameRegistry.registerItem(pixelPeaStew, "pixelPeaStew");
+		
+		pixelWaterH3OBucket = new PixelWaterH3OBucket("pixelWaterH3OBucket");
+		GameRegistry.registerItem(pixelWaterH3OBucket, "pixelWaterH3OBucket");
+		FluidContainerRegistry.registerFluidContainer(PixelGalaxyBlocks.PixelWaterH3OFluid, new ItemStack(PixelGalaxyItems.pixelWaterH3OBucket), new ItemStack(Items.bucket));
+		
+		pixelCoal= new PixelWoodCoal()
+				.setCreativeTab(PixelCreativeTab.PixelItemsTab)
+				.setUnlocalizedName("pixelCoal")
+				.setTextureName(Constants.TEXTURE_PREFIX + "PixelCoal");
+		
+		pixelCharCoal = new PixelWoodCoal()
+				.setCreativeTab(PixelCreativeTab.PixelItemsTab)
+				.setUnlocalizedName("pixelCharCoal")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelcharcoal");
+		
+		GameRegistry.registerItem(pixelCoal, "pixelCoal");
+		GameRegistry.registerItem(pixelCharCoal, "pixelCharCoal");
 		
 		pixelbeetrootsoup = new PixelItemRiceBread("PixelBeetRootSoup", 10, 0.8f, false)
 				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
@@ -167,7 +219,13 @@ public class PixelGalaxyItems {
 				.setUnlocalizedName("pixelRiceSeed")
 				.setTextureName(Constants.TEXTURE_PREFIX + "pixelRiceSeeds");
 		
+		pixelPumkinSeed = new PixelItemSeed(PixelGalaxyBlocks.pixelPumpkinStem, PixelGalaxyBlocks.FarmlandPixel)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelPumkinSeed")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelseeds_pumpkin");
+		
 		GameRegistry.registerItem(pixelRiceSeed, "pixelRiceSeed");
+		GameRegistry.registerItem(pixelPumkinSeed, "pixelPumkinSeed");
 		
 		pixelRice = new Item()
 				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
@@ -280,5 +338,7 @@ public class PixelGalaxyItems {
 		GameRegistry.registerItem(pixelizerChestplate, "pixelizerChestplate");
 		GameRegistry.registerItem(pixelizerLeggings, "pixelizerLeggings");
 		GameRegistry.registerItem(pixelizerBoots, "pixelizerBoots");
+		
+		
 	}
 }

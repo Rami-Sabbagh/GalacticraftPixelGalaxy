@@ -4,6 +4,10 @@ import org.apache.logging.log4j.core.helpers.Strings;
 
 import com.ramilego.pixelgalaxy.Constants;
 import com.ramilego.pixelgalaxy.PixelCreativeTab;
+import com.ramilego.pixelgalaxy.fluids.PixelLavaFluid;
+import com.ramilego.pixelgalaxy.fluids.PixelWaterH3O;
+import com.ramilego.pixelgalaxy.fluids.blocks.PixelFluidH3OBlock;
+import com.ramilego.pixelgalaxy.fluids.blocks.PixelFluidLavaBlock;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -19,10 +23,23 @@ public class PixelGalaxyBlocks {
 	public static Block pixelDirt;
 	public static Block pixelStone;
 	public static Block pixelCobblestoneStone;
-		
+	
+	//Fluid Blocks
+	public static Block PixelWaterH3OBLock;
+	public static Block pixelLavaBlock;
+	
+	//Fluid
+	public static Fluid PixelWaterH3OFluid;
+	public static Fluid pixelLavaFluid;
+	
 	//Farmland
 	public static Block FarmlandPixel;
 	
+	//Stem
+	public static Block pixelPumpkinStem;
+	
+	//TallGrass
+	public static Block pixelTallGrass;
 	
 	//Glowing Block
 	public static Block blueStoneOre;
@@ -44,13 +61,54 @@ public class PixelGalaxyBlocks {
 	public static Block pixelizerdiamondBlock;
 	public static Block pixelIronOre;
 	public static Block pixelIronBlock;
+	public static Block pixelCoalOre;
+	public static Block pixelCoalBlocks;
 	
 	public static Block pixelWheat;
 	public static Block pixelPotato;
 	public static Block pixelCarrot;
 	public static Block pixelBeetroot;
-	
+	public static Block pixelPumpkin;
+	public static Block pixelPeaCrop;
+
 	public static void registerBlocks(){
+		PixelGalaxyBlocks.pixelLavaFluid = new PixelLavaFluid("pixelLavaBlock")
+				.setBlock(PixelGalaxyBlocks.pixelLavaBlock);
+		FluidRegistry.registerFluid(PixelGalaxyBlocks.pixelLavaFluid);
+		
+		PixelGalaxyBlocks.pixelLavaBlock = new PixelFluidLavaBlock("pixelLavaBlock", PixelGalaxyBlocks.pixelLavaFluid, Material.lava);
+		GameRegistry.registerBlock(pixelLavaBlock, "pixelLavaBlock");
+		
+		pixelTallGrass = new PixelTallGrassBlocks()
+				.setBlockName("pixelTallGrass")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixeltallgrass");
+		
+		GameRegistry.registerBlock(pixelTallGrass, "pixelTallGrass");
+		
+		PixelGalaxyBlocks.PixelWaterH3OFluid = new PixelWaterH3O("PixelWaterH3OBLock").setBlock(PixelGalaxyBlocks.PixelWaterH3OBLock);
+		FluidRegistry.registerFluid(PixelGalaxyBlocks.PixelWaterH3OFluid);
+		
+		PixelGalaxyBlocks.PixelWaterH3OBLock = new PixelFluidH3OBlock("PixelFluidH3O", PixelGalaxyBlocks.PixelWaterH3OFluid, Material.water);
+		GameRegistry.registerBlock(PixelWaterH3OBLock, "PixelWaterH3OBLock");
+		
+		pixelPumpkinStem = new PixelStem(FarmlandPixel)
+				.setBlockName("pixelPumpkin")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelpumpkin");
+		
+		pixelPumpkin = new PixelPumpkinBlock(Material.cactus)
+				.setBlockName("pixelPumpkin")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelpumpkin");
+		
+		GameRegistry.registerBlock(pixelPumpkinStem, "pixelPumpkinStem");
+		GameRegistry.registerBlock(pixelPumpkin, "pixelPumpkin");
+		
+		pixelPeaCrop = new PixelPeaCrop()
+				.setBlockName("pixelPea")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "PixelPea");
 		
 		pixelBeetroot = new PixelBeetrootCrop()
 				.setBlockName("pixelBeetroot")
@@ -67,6 +125,7 @@ public class PixelGalaxyBlocks {
 				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
 				.setBlockTextureName(Constants.TEXTURE_PREFIX + "Pixelpotatoes");
 				 
+	    GameRegistry.registerBlock(pixelPeaCrop, pixelPeaCrop.getUnlocalizedName());
 		GameRegistry.registerBlock(pixelCarrot, pixelCarrot.getUnlocalizedName());
 		GameRegistry.registerBlock(pixelPotato, pixelPotato.getUnlocalizedName());
 		GameRegistry.registerBlock(pixelBeetroot, pixelBeetroot.getUnlocalizedName());
@@ -122,17 +181,26 @@ public class PixelGalaxyBlocks {
 		
 		pixelizerOre = new NormalPixelBlock(Material.rock).setBlockName("pixelizerOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelizerOre").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
 		pixelizerOre.setHarvestLevel("pickaxe", 2);
-		pixelizerDiamondOre = new DiamondPixelBlock(Material.rock).setBlockName("pixelizerDiamondOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamond_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
-		pixelizerDiamondOre.setHarvestLevel("pickaxe", 2);
 		pixelizerBlock = new NormalPixelBlock(Material.rock).setBlockName("pixelizerBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelizerBlock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelizerBlock.setHarvestLevel("pickaxe", 0);
+		
+		pixelizerDiamondOre = new DiamondPixelBlock(Material.rock).setBlockName("pixelizerDiamondOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamond_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston);
+		pixelizerDiamondOre.setHarvestLevel("pickaxe", 2);
 		pixelizerdiamondBlock = new NormalPixelBlock(Material.rock).setBlockName("DiamondPixelBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "diamondBlock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelizerdiamondBlock.setHarvestLevel("pickaxe", 0);
+		
 		pixelIronOre = new NormalPixelBlock(Material.rock).setBlockName("pixelIronOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "iron_pixelore").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelIronOre.setHarvestLevel("pickaxe", 1);
 		pixelIronBlock = new NormalPixelBlock(Material.rock).setBlockName("pixelIronBlock").setBlockTextureName(Constants.TEXTURE_PREFIX + "Ironblock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
 		pixelIronBlock.setHarvestLevel("pickaxe", 0);
 		
+		pixelCoalOre = new PixelCoalBlock(Material.rock).setBlockName("pixelCoalOre").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelcoalore").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
+		pixelCoalOre.setHarvestLevel("pickaxe", 0);
+		pixelCoalBlocks = new PixelCoalBlock(Material.rock).setBlockName("pixelCoalBlocks").setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelcoalblock").setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundTypeMetal);
+		pixelCoalBlocks.setHarvestLevel("pickaxe", 0);
+		
+		GameRegistry.registerBlock(pixelCoalOre, "pixelCoalOre");
+		GameRegistry.registerBlock(pixelCoalBlocks, "pixelCoalBlocks");
 		GameRegistry.registerBlock(pixelIronBlock, "pixelIronBlock");
 		GameRegistry.registerBlock(pixelIronOre, "pixelIronOre");
 		GameRegistry.registerBlock(pixelizerdiamondBlock, "DiamondPixelBlock");

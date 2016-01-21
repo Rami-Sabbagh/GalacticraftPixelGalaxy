@@ -582,10 +582,11 @@ public class PixelRecipes {
 					'B', PixelGalaxyItems.pixelWoodItem,
 				});	
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.pixelizerIngot, 9), new Object[]{ PixelGalaxyBlocks.pixelizerBlock });
-			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.diamondPixel, 9), new Object[]{ PixelGalaxyBlocks.pixelizerdiamondBlock });
-			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.ironPixelIngot, 9), new Object[]{ PixelGalaxyBlocks.pixelIronBlock });
-			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.blueStoneIngot, 9), new Object[]{ PixelGalaxyBlocks.GlowingBlueStoneBlock });
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.pixelizerIngot, 9), new Object[]{ PixelGalaxyBlocks.pixelizerBlock});
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.diamondPixel, 9), new Object[]{ PixelGalaxyBlocks.pixelizerdiamondBlock});
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.ironPixelIngot, 9), new Object[]{ PixelGalaxyBlocks.pixelIronBlock});
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.blueStoneIngot, 9), new Object[]{ PixelGalaxyBlocks.GlowingBlueStoneBlock});
+			GameRegistry.addShapelessRecipe(new ItemStack(PixelGalaxyItems.pixelPumkinSeed, 4), new Object[]{ PixelGalaxyBlocks.pixelPumpkin});
 	}
 	
 	public static void registerSmeltingRecipes(){
@@ -593,5 +594,7 @@ public class PixelRecipes {
 		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelizerDiamondOre, new ItemStack(PixelGalaxyItems.diamondPixel, 1), 1.0F);
 		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelIronOre, new ItemStack(PixelGalaxyItems.ironPixelIngot, 1), 1.0F);
 		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelCobblestoneStone, new ItemStack(PixelGalaxyBlocks.pixelStone, 1), 0F);
+		GameRegistry.addSmelting(PixelGalaxyItems.pixelWoodItem, new ItemStack(PixelGalaxyItems.pixelCharCoal, 1), 0F);
+		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelCoalOre, new ItemStack(PixelGalaxyItems.pixelCoal, 1), 0F);
 	}
 }
