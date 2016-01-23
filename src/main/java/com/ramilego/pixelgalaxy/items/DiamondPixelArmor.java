@@ -21,7 +21,7 @@ public class DiamondPixelArmor extends ItemArmor {
 		if(stack.getItem() == PixelGalaxyItems.diamondPixelHelmet || stack.getItem() == PixelGalaxyItems.diamondPixelChestplate || stack.getItem() == PixelGalaxyItems.diamondPixelBoots)
 		{
 			return Constants.TEXTURE_PREFIX + "/textures/model/armor/DiamondPixel1.png";
-		}else if(stack.getItem() == PixelGalaxyItems.pixelizerLeggings) {
+		}else if(stack.getItem() == PixelGalaxyItems.diamondPixelLeggings) {
 			return Constants.TEXTURE_PREFIX + "/textures/model/armor/DiamondPixel2.png";
 		}else{
 			return null;
