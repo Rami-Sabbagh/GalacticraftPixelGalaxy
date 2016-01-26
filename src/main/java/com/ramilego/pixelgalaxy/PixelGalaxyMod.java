@@ -7,6 +7,7 @@ import com.ramilego.pixelgalaxy.blocks.PixelGalaxyBlocks;
 import com.ramilego.pixelgalaxy.dimension.TeleportTypeGreenPixel;
 import com.ramilego.pixelgalaxy.dimension.WorldProviderGreenPixel;
 import com.ramilego.pixelgalaxy.event.GreenPixelEvents;
+import com.ramilego.pixelgalaxy.items.PixelFuelHader;
 import com.ramilego.pixelgalaxy.items.PixelGalaxyItems;
 import com.ramilego.pixelgalaxy.proxy.CommonProxy;
 
@@ -17,6 +18,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.*;
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
@@ -45,6 +47,8 @@ public class PixelGalaxyMod {
 		
 		PixelRecipes.registerCraftingRecipes();
 		PixelRecipes.registerSmeltingRecipes();
+		
+		GameRegistry.registerFuelHandler(new PixelFuelHader());
 		
 		this.proxy.preInit(event);
 	}

@@ -1,0 +1,149 @@
+##########Galaxy##########
+solarsystem.lostpixel=ระบบพิกเซลที่หายไป
+
+##########Planets##########
+planet.greenpixel=พิกเซลสีเขียว
+
+##########Star##########
+star.pixel=ดาวฤกษ์ของจักรวารพิกเซล
+
+##########Ore , grass and stone ##########
+tile.greenGrass.name=บล็อกหญ้าสีเขียว
+tile.pixelDirt.name=บล็อกดินจากดาวพิกเซล
+tile.pixelStone.name=บล็อกหินจากดาวพิกเซล
+tile.pixelizerOre.name=แร่พิกเซลล้า
+tile.pixelizerDiamondOre.name=แร่เพชรพิกเซล
+tile.pixelIronOre.name=แร่เหล็กพิกเซล
+tile.FarmlandPixel.name=พื้นที่เพาะปลูก
+tile.blueStoneOre.name=แร่หินฟ้า
+tile.pixelCobblestoneStone.name=หินหยาบพิกเซล
+tile.pixelCoalOre.name=แร่ถ่านหินพิกเซล
+tile.pixelObsidian.name=หินออปซิเดียนพิกเซล
+
+#############Fuel###############
+item.pixelCharCoal.name=ถ่านไม้พิกเซล
+item.pixelCoal.name=ถ่านหินพิกเซล
+
+##############Buckets################
+item.pixelWaterH3OBucket.name=ถัง H3O
+item.pixelLavaBucket.name=ถังพิกเซลลาวา
+
+##########leaves , log and wood##########
+tile.pixelLeaves.name=ใบไม้จากดาวพิกเซล
+tile.pixelOrangeLeaves.name=ใบไม้จากต้นส้ม ของดาวพิกเซลสีเขียว
+tile.pixelOak.name=โอกจากดาวพิกเซล
+tile.pixelLog.name=ท่อนไม้จากดาวพิกเซล
+tile.pixelWoodBlock_0.name=บล็อกไม้ชั้นที่1
+tile.pixelWoodBlock_1.name=บล็อกไม้ชั้นที่2
+tile.pixelWoodBlock_2.name=บล็อกไม้ชั้นที่3
+tile.pixelWoodBlock_3.name=บล็อกไม้ชั้นที่4
+tile.pixelWoodBlock_4.name=บล็อกไม้ชั้นที่5
+
+###########Crop#############
+tile.pixelCarrot.name=ต้น แครรอทพิกเซล
+tile.pixelPotato.name=ต้น มันฟลั่งพิกเซล
+tile.pixelBeetroot.name=ต้น บีทรูทพิกเซล
+tile.PixelRice.name=ต้น ข้าวพิกเซล
+tile.pixelPumpkinStem.name=ต้นผักทอง
+tile.pixelTallGrass.name=ต้นหญ้า พิกเซล
+tile.pixelPea.name=ต้นถั่วเขียว พิกเซล
+
+############Fluid#############
+tile.PixelFluidH3O.name=บล็อก H3O
+tile.pixelLavaBlock.name=บล็อก ลาวาพิกเซล
+
+########GAS##########
+tile.PixelNitrogen.name=บล็อก ไนโตรเจ้น
+tile.intensePixelNitrogen.name=บล็อก ไนโตรเจ้นเข้มข้น
+
+########## MAXED BLOCK ##########
+tile.pixelizerBlock.name=บล็อกพิกเซลล้า
+tile.DiamondPixelBlock.name=บล็อกเพชรพิกเซล
+tile.pixelIronBlock.name=บล็อกเหล็กพิกเซล
+tile.GlowingBlueStoneBlock.name=หินเรืองแสงจาก แร่สีฟ้า
+tile.pixelCoalBlocks.name=บล็อกถ่านพิกเซล
+
+########## Item ##########
+item.pixelWoodItem.name=ไม้พิกเซล
+item.pixelWoodStick.name=แท่งไม้จาก ไม้พิกเซล
+
+########## ingot ore ##########
+item.pixelizerIngot.name=แท่งพิกเซลล้า
+item.diamondPixel.name=เพชรพืกเซล
+item.ironPixelIngot.name=แท่งเหล็กพิกเซล
+item.blueStoneIngot.name=ก้อน หินสีฟ้า
+
+########## Tools ##########
+item.pixelizerSword.name=ดาปพิกเซลล้า
+item.pixelizerHoe.name=จอบพิกเซลล้า
+item.pixelizerPickaxe.name=ที่ขุดพิกเซลล้า
+item.pixelizerShovel.name=พลั่วพิกเซลล้า
+item.pixelizerAxe.name=ขวานพิกเซลล้า
+
+item.diamondPixelSword.name=ดาปเพชรพิกเซล
+item.diamondPixelHoe.name=ชอบเพชรพิกเซล
+item.diamondPixelPickaxe.name=ที่ขุดเพชรพิกเซล
+item.diamondPixelShovel.name=พลั่วเพชรพิกเซล
+item.diamondPixelAxe.name=ขวานเพชรพิกเซล
+
+item.ironPixelSword.name=ดาปเหล็กพิกเซล
+item.ironPixelHoe.name=จอบเหล็กพิกเซล
+item.ironPixelPickaxe.name=ที่ขุดเหล็กพิกเซล
+item.ironPixelShovel.name=พลั่วเหล็กพิกเซล
+item.ironPixelAxe.name=ขวานเหล็กพิกเซล
+
+item.woodPixelSword.name=ดาปไม้ พิกเซล
+item.woodPixelHoe.name=จอบไม้ พิกเซล
+item.woodPixelPickaxe.name=ที่ขุดไม้ พิกเซล
+item.woodPixelShovel.name=พลั่วไม้ พิกเซล
+item.woodPixelAxe.name=ขวานไม้ พิกเซล
+
+item.stonePixelSword.name=ดาปหิน พิกเซล
+item.stonePixelHoe.name=จอบหิน พิกเซล
+item.stonePixelPickaxe.name=ที่ขุดหิน พิกเซล
+item.stonePixelShovel.name=พลั่วหิน พิกเซล
+item.stonePixelAxe.name=ขวานหิน พิกเซล
+
+########## outfit ##########
+item.pixelizerHelmet.name=หมวกพิกเซลล้า
+item.pixelizerChestplate.name=เสื้อเกาะพิกเซลล้า
+item.pixelizerLeggings.name=กางเกงพิกเซลล้า
+item.pixelizerBoots.name=รองเท้าพิกเซลล้า
+
+item.diamondPixelHelmet.name=หมวกเพชรพืกเซล
+item.diamondPixelChestplate.name=เสื้อเกาะเพชรพืกเซล
+item.diamondPixelLeggings.name=กางเกงเพชรพืกเซล
+item.diamondPixelBoots.name=รองเท้าเพชรพืกเซล
+
+item.ironPixelHelmet.name=หมวกเหล็กพิกเซล
+item.ironPixelChestplate.name=เสื้อเกาะเหล็กพิกเซล
+item.ironPixelLeggings.name=กางเกงเหล็กพิกเซล
+item.ironPixelBoots.name=รองเท้าเหล็กพิกเซล
+
+########## Foods ###########
+item.pixelOrange.name=ส้ม พิกเซล
+item.pixelApple.name=แอปเปิ้ล พิกเซล
+item.pixelCarrot.name=แครรอทพิกเซล
+item.pixelPotato.name=มันฟลั่งพิกเซล
+item.pixelBeetroot.name=บีทรูทพิกเซล
+item.pixelRiceBread.name=ขนมปังจากข้าว
+item.pixelRiceSeed.name=แมล็ดข้าว
+item.pixelRice.name=ข้าวพิกเซล
+item.Pixelbowl.name=จานพิกเซล
+item.PixelBeetRootSoup.name=ซุปบีทรูทพิกเซล
+tile.pixelPumpkin.name=บล็อกผักทอง
+item.pixelPumkinSeed.name=แมล็ดผักทองพิกเซล
+item.pixelPea.name=ถั่วพิกเซล
+item.pixelPeaStew.name=สตรูถั่วพิกเซล
+item.pixelPeaSeed.name=แมล็ดถั่วพิกเซล
+item.pixelPotatoSoup.name=ซุปมันฟลั่งพิเซล
+item.pixelCarrotSoup.name=ซุปแคร์รอทพิกเซล
+item.pixelBakedPotato.name=มันพิกเซลเผา
+
+###########Misc###############
+item.pixelBottle.name=ขวดพิกเซล
+
+########## Creative custom bar ##########
+itemGroup.PixelBlocksTab=บล็อกพิกเซล (ของเสริมGC)
+itemGroup.PixelItemsTab=ไอเท็มพิกเซล (ของเสริมGC)
+itemGroup.PixelFoodsTab=อาหารพิกเซล(ของเสริมGC)

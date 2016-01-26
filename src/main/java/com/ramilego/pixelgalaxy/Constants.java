@@ -3,7 +3,7 @@ package com.ramilego.pixelgalaxy;
 public class Constants {
 	public static final String modID = "GCPixelGalaxy";
 	public static final String modName = "PixelGalaxy";
-	public static final String modVersion = "0.8.1";
+	public static final String modVersion = "0.9.2";
 	
 	public static final String ASSET_PREFIX = "gcpixelgalaxy";
     public static final String TEXTURE_PREFIX = ASSET_PREFIX + ":";
