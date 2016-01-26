@@ -1,8 +1,10 @@
 package com.ramilego.pixelgalaxy.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import com.ramilego.pixelgalaxy.PixelCreativeTab;
+import com.ramilego.pixelgalaxy.items.PixelGalaxyItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -21,7 +23,7 @@ public class LeavesPixelBlock extends BlockLeaves {
     
     public LeavesPixelBlock() {
 		super();
-		
+		this.setTickRandomly(true);		
 		this.setCreativeTab(PixelCreativeTab.PixelBlocksTab);
 	}
     
@@ -29,7 +31,7 @@ public class LeavesPixelBlock extends BlockLeaves {
     {
         if ((p_150124_5_ & 3) == 1 && p_150124_1_.rand.nextInt(p_150124_6_) == 0)
         {
-            this.dropBlockAsItem(p_150124_1_, p_150124_2_, p_150124_3_, p_150124_4_, new ItemStack(Items.apple, 1, 0));
+            this.dropBlockAsItem(p_150124_1_, p_150124_2_, p_150124_3_, p_150124_4_, new ItemStack(PixelGalaxyItems.pixelApple, 1, 0));
         }
     }
     
@@ -83,4 +85,15 @@ public class LeavesPixelBlock extends BlockLeaves {
         return Item.getItemFromBlock(PixelGalaxyBlocks.pixelLeaves);
     }
 
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
+    {
+        ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
+        if (metadata >= 7 && world.rand.nextInt(15) == 0)
+            ret.add(new ItemStack(PixelGalaxyItems.pixelApple));
+        return ret;
+    }
+    
 }
+
+
