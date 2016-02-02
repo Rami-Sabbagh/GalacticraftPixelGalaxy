@@ -7,7 +7,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.BiomeDecoratorSpace;
 import micdoodle8.mods.galacticraft.core.world.gen.WorldGenMinableMeta;
 
-public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
+public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace { 
 	
 	/*private WorldGenerator dirtGen;
     private WorldGenerator deshGen;
@@ -21,6 +21,9 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
 	private WorldGenerator nitrogenGen;
 	private WorldGenerator blueStonegen;
 	private WorldGenerator CoalOreGen;
+	
+	public int H3OLakesPerChunk;
+	public int LavaLakesPerChunk;
 	
     private World currentWorld;
 
@@ -41,6 +44,10 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
     	this.pixelizerGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelizerOre, 6, 1, false, PixelGalaxyBlocks.pixelStone, 1);
     	this.diamondPixelGen = new WorldGenMinableMeta(PixelGalaxyBlocks.pixelizerDiamondOre, 4, 1, false, PixelGalaxyBlocks.pixelStone, 1);
     	this.nitrogenGen = new WorldGenMinableMeta(PixelGalaxyBlocks.PixelNitrogen, 6, 1, false, PixelGalaxyBlocks.pixelStone, 1);
+    	
+    	this.H3OLakesPerChunk = 1;
+		this.LavaLakesPerChunk = 1;
+    
     }
 
 	@Override
@@ -70,6 +77,29 @@ public class BiomeDecoratorGreenPixel extends BiomeDecoratorSpace {
 		this.generateOre(10, this.ironGen, 0, 64);
 		this.generateOre(10, this.nitrogenGen, 0, 64);
 		this.generateOre(10, this.blueStonegen, 0, 18);
+		
+		int var2;
+		int var3;
+		int var4;
+		int var5;
+		
+		for (var2 = 0; var2 < this.H3OLakesPerChunk; ++var2) {
+			var3 = this.chunkX + this.rand.nextInt(16) + 8;
+			var4 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
+			var5 = this.chunkZ + this.rand.nextInt(16) + 8;
+		new WorldGenPixelH3O(PixelGalaxyBlocks.PixelWaterH3OBLock, PixelGalaxyBlocks.PixelWaterH3OBLock, 3).generate(this.currentWorld, this.rand, var3, var4, var5);
+		}
+		
+		for (var2 = 0; var2 < this.LavaLakesPerChunk; ++var2) {
+			var3 = this.chunkX + this.rand.nextInt(16) + 8;
+			var4 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(112) + 8) + 8);
+			var5 = this.chunkZ + this.rand.nextInt(16) + 8;
+		new WorldGenPixelLava(PixelGalaxyBlocks.pixelLavaBlock, PixelGalaxyBlocks.pixelLavaBlock, 3).generate(this.currentWorld, this.rand, var3, var4, var5);
+		}
+
+			
+		
+		
 	}
 
 }

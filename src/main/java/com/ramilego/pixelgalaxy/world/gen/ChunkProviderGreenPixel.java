@@ -6,7 +6,10 @@ import java.util.List;
 import com.google.common.collect.Lists;
 import com.ramilego.pixelgalaxy.blocks.PixelGalaxyBlocks;
 
+
 import net.minecraft.block.Block;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntitySkeleton;
@@ -17,6 +20,7 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -54,35 +58,42 @@ public class ChunkProviderGreenPixel extends ChunkProviderSpace {
 		return 64;
 	}
 
+	public String getWelcomeMessage() {
+		return "Wellcome to Greenpixel Planet";
+	}
+
+	public String getDepartMessage() {
+		return "See you again";
+	}
+	
 	@Override
 	protected List<MapGenBaseMeta> getWorldGenerators() {
 		List<MapGenBaseMeta> generators = Lists.newArrayList();
         return generators;
 	}
 
-	@Override
-	protected SpawnListEntry[] getMonsters() {
-		List<BiomeGenBase.SpawnListEntry> monsters = new ArrayList<BiomeGenBase.SpawnListEntry>();
-        monsters.add(new BiomeGenBase.SpawnListEntry(EntityZombie.class, 8, 2, 3));
-        monsters.add(new BiomeGenBase.SpawnListEntry(EntitySpider.class, 8, 2, 3));
-        monsters.add(new BiomeGenBase.SpawnListEntry(EntitySkeleton.class, 8, 2, 3));
-        monsters.add(new BiomeGenBase.SpawnListEntry(EntityCreeper.class, 8, 2, 3));
-        monsters.add(new BiomeGenBase.SpawnListEntry(EntityEnderman.class, 8, 1, 3));
-        return monsters.toArray(new BiomeGenBase.SpawnListEntry[monsters.size()]);
-	}
 
 	
-	@Override
-	protected SpawnListEntry[] getCreatures() {
-		List<BiomeGenBase.SpawnListEntry> creatures = new ArrayList<BiomeGenBase.SpawnListEntry>();
-		creatures.add(new BiomeGenBase.SpawnListEntry(EntityChicken.class, 8, 2, 4));
-        creatures.add(new BiomeGenBase.SpawnListEntry(EntityCow.class, 8, 2, 6));
-        creatures.add(new BiomeGenBase.SpawnListEntry(EntityHorse.class, 8, 2, 4));
-        creatures.add(new BiomeGenBase.SpawnListEntry(EntityPig.class, 8, 2, 6));
-        creatures.add(new BiomeGenBase.SpawnListEntry(EntitySheep.class, 8, 2, 6));
-        return creatures.toArray(new BiomeGenBase.SpawnListEntry[creatures.size()]);
-	}
-
+	@SuppressWarnings({"unchecked","rawtypes"}) 
+	@Override public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType,int i,int j,int k){
+		  if (par1EnumCreatureType == EnumCreatureType.monster) 
+		{
+		    List monsters=new ArrayList();
+		    monsters.add(new BiomeGenBase.SpawnListEntry(EntityZombie.class, 8, 2, 3));
+	        monsters.add(new BiomeGenBase.SpawnListEntry(EntitySpider.class, 8, 2, 3));
+	        monsters.add(new BiomeGenBase.SpawnListEntry(EntitySkeleton.class, 8, 2, 3));
+	        monsters.add(new BiomeGenBase.SpawnListEntry(EntityCreeper.class, 8, 2, 3));
+	        monsters.add(new BiomeGenBase.SpawnListEntry(EntityEnderman.class, 8, 1, 3));
+		    return monsters;
+		}
+		if (par1EnumCreatureType == EnumCreatureType.creature) 
+		{
+			List creatures=new ArrayList();
+			return creatures;
+			}
+		  return null;
+		}
+	
 	@Override
 	protected BlockMetaPair getGrassBlock() {
 		return new BlockMetaPair(PixelGalaxyBlocks.greenGrass,(byte) 1);
@@ -129,6 +140,16 @@ public class ChunkProviderGreenPixel extends ChunkProviderSpace {
 
 	@Override
 	public void onPopulate(IChunkProvider provider, int cX, int cZ) {
+	}
+
+	@Override
+	protected SpawnListEntry[] getMonsters() {
+		return null;
+	}
+
+	@Override
+	protected SpawnListEntry[] getCreatures() {
+		return null;
 	}
 
 }

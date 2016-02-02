@@ -25,7 +25,9 @@ public class PixelGalaxyItems {
 	public static Item blueStoneIngot;
     public static Item pixelCharCoal;
     public static Item pixelCoal;
-	
+    public static Item pixelLeather;
+    public static Item pixelChain;
+	 
     //Buckets
     public static Item pixelWaterH3OBucket;
     public static Item pixelLavaBucket;
@@ -83,6 +85,12 @@ public class PixelGalaxyItems {
 	public static Item ironPixelLeggings;
 	public static Item ironPixelBoots;
 	
+	//ChainPixel Armor
+	public static Item ChainPixelHelmet;
+	public static Item ChainPixelChestplate;
+	public static Item ChainPixelLeggings;
+	public static Item ChainPixelBoots;
+	
 	public static Item pixelWoodItem;
 	public static Item pixelWoodStickItem;
 	
@@ -104,6 +112,13 @@ public class PixelGalaxyItems {
 	public static Item pixelOrange;
 	public static Item pixelPea;
 	public static Item pixelBakedPotato;
+	/**
+	 * Meats
+	 */
+	public static Item pixelRewPorkchop;
+	public static Item pixelCookedPorkchop;
+	public static Item pixelbeefraw;
+	public static Item pixelbeefcooked;
 	
 	//Soup or Stew
 	public static Item pixelbowl;
@@ -119,13 +134,70 @@ public class PixelGalaxyItems {
 	static ToolMaterial stonePixelToolMaterial = EnumHelper.addToolMaterial("stonePixelToolMaterial", 1, 131, 4.0f, 1.0f, 5);
 	static ToolMaterial ironPixelToolMaterial = EnumHelper.addToolMaterial("ironPixelToolMaterial", 2, 250, 6.0f, 2.0f, 14);
 	static ToolMaterial diamondPixelToolMaterial = EnumHelper.addToolMaterial("diamondPixelToolMaterial", 3, 1561, 3.0f, 4.0f, 10);
-	static ToolMaterial pixelizerToolMaterial = EnumHelper.addToolMaterial("pixelizerToolMaterial", 4, 2000, 10.0f, 4.0f, 15);
+	static ToolMaterial pixelizerToolMaterial = EnumHelper.addToolMaterial("pixelizerToolMaterial", 4, 5000, 99.0f, 99.0f, 10000);
 	static ArmorMaterial pixelizerArmorMaterial = EnumHelper.addArmorMaterial("pixelizerArmorMaterial", 44, new int[]{4, 9, 7, 4}, 15);
 	static ArmorMaterial diamondPixelMaterial = EnumHelper.addArmorMaterial("diamondPixelMaterial", 33, new int[]{3, 8, 6, 3}, 10);
 	static ArmorMaterial ironPixelMaterial = EnumHelper.addArmorMaterial("ironPixelMaterial", 15, new int[]{2, 6, 5, 2}, 9);
+	static ArmorMaterial ChainPixelMaterial = EnumHelper.addArmorMaterial("ChainPixelMaterial", 15, new int[]{2, 5, 4, 1}, 12);
 	
 	public static void registerItems(){
-		pixelBakedPotato = new PixelItemRiceBread("pixelBakedPotato", 5, 0.3f, false)
+		
+		ChainPixelHelmet = new ChainPixelArmor(ChainPixelMaterial, 3, 0)
+				.setUnlocalizedName("ChainPixelHelmet")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelchainmail_helmet");
+		ChainPixelChestplate = new ChainPixelArmor(ChainPixelMaterial, 3, 1)
+				.setUnlocalizedName("ChainPixelChestplate")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelchainmail_chestplate");
+		ChainPixelLeggings = new ChainPixelArmor(ChainPixelMaterial, 3, 2)
+				.setUnlocalizedName("ChainPixelLeggings")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelchainmail_leggings");
+		ChainPixelBoots = new ChainPixelArmor(ChainPixelMaterial, 3, 3)
+				.setUnlocalizedName("ChainPixelBoots")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelchainmail_boots");
+		
+		GameRegistry.registerItem(ChainPixelHelmet, "ChainPixelHelmet");
+		GameRegistry.registerItem(ChainPixelChestplate, "ChainPixelChestplate");
+		GameRegistry.registerItem(ChainPixelLeggings, "ChainPixelLeggings");
+		GameRegistry.registerItem(ChainPixelBoots, "ChainPixelBoots");
+		
+		pixelChain = new PixelItem()
+				.setCreativeTab(PixelCreativeTab.PixelItemsTab)
+				.setUnlocalizedName("pixelChain")
+				.setTextureName(Constants.TEXTURE_PREFIX + "PixelChain");
+		
+		pixelLeather = new PixelItem()
+				.setCreativeTab(PixelCreativeTab.PixelItemsTab)
+				.setUnlocalizedName("pixelLeather")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelleather");
+		
+		pixelbeefraw = new PixelItemRiceBread("pixelbeefraw", 3, 0.3f, false)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelbeefraw")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelbeefraw");
+		
+		pixelbeefcooked = new PixelItemRiceBread("pixelbeefcooked", 8, 0.3f, false)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelbeefcooked")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelbeefcooked");
+		
+		pixelRewPorkchop = new PixelItemRiceBread("pixelRewPorkchop", 3, 0.3f, false)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelRewPorkchop")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelporkchopraw");
+		
+		pixelCookedPorkchop = new PixelItemRiceBread("pixelCookedPorkchop", 8, 0.3f, false)
+				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
+				.setUnlocalizedName("pixelCookedPorkchop")
+				.setTextureName(Constants.TEXTURE_PREFIX + "pixelporkchopcooked");
+		
+		GameRegistry.registerItem(pixelChain, "pixelChain");
+		GameRegistry.registerItem(pixelLeather, "pixelLeather");
+		GameRegistry.registerItem(pixelbeefraw, "pixelbeefraw");
+		GameRegistry.registerItem(pixelbeefcooked, "pixelbeefcooked");
+		GameRegistry.registerItem(pixelRewPorkchop, "pixelRewPorkchop");
+		GameRegistry.registerItem(pixelCookedPorkchop, "pixelCookedPorkchop");
+		
+		pixelBakedPotato = new PixelItemRiceBread("pixelBakedPotato", 6, 0.3f, false)
 				.setCreativeTab(PixelCreativeTab.PixelFoodsTab)
 				.setUnlocalizedName("pixelBakedPotato")
 				.setTextureName(Constants.TEXTURE_PREFIX + "pixelBakedPotato");

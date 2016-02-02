@@ -4,6 +4,9 @@ solarsystem.lostpixel=ระบบพิกเซลที่หายไป
 ##########Planets##########
 planet.greenpixel=พิกเซลสีเขียว
 
+##########Entity##########
+entity.humanPixel.name=มนุษยพิกเซล
+
 ##########Star##########
 star.pixel=ดาวฤกษ์ของจักรวารพิกเซล
 

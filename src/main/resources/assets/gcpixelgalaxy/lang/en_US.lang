@@ -1,6 +1,9 @@
 ##########Galaxy##########
 solarsystem.lostpixel=Lost Pixel
 
+##########Entity##########
+entity.humanPixel.name=PixelHuman
+
 ##########Planets##########
 planet.greenpixel=Green Pixel
 
