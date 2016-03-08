@@ -1,5 +1,7 @@
 package com.ramilego.pixelgalaxy.proxy;
 
+import com.ramilego.pixelgalaxy.PixelGalaxyMod;
+
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -26,5 +28,10 @@ public class ClientProxy extends CommonProxy {
 	public static void registerHandlers()
 	{
 		
+	}
+	
+	@Override
+	public void registerRenderers(PixelGalaxyMod ins) 
+	{
 	}
 }

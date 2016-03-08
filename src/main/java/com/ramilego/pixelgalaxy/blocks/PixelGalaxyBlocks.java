@@ -24,6 +24,8 @@ public class PixelGalaxyBlocks {
 	public static Block pixelStone;
 	public static Block pixelCobblestoneStone;
 	public static Block pixelObsidian;
+	public static Block pixelSand;
+	public static Block pixelRedSand;
 		
 	//Fluid Blocks
 	public static Block PixelWaterH3OBLock;
@@ -41,6 +43,9 @@ public class PixelGalaxyBlocks {
 	
 	//TallGrass
 	public static Block pixelTallGrass;
+	public static Block pixelflower_paeonia;
+	public static Block pixelflower_tulip_pink;
+	public static Block pixelflower_tulip_red;
 	
 	//Glowing Block
 	public static Block blueStoneOre;
@@ -72,7 +77,39 @@ public class PixelGalaxyBlocks {
 	public static Block pixelPumpkin;
 	public static Block pixelPeaCrop;
 
-	public static void registerBlocks(){		
+	public static void registerBlocks(){
+		pixelflower_paeonia = new PixelTallGrassBlocks()
+				.setBlockName("pixelflower_paeonia")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelflower_paeonia");
+		
+		pixelflower_tulip_pink = new PixelTallGrassBlocks()
+				.setBlockName("pixelflower_tulip_pink")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelflower_tulip_pink");
+				
+		pixelflower_tulip_red = new PixelTallGrassBlocks()
+				.setBlockName("pixelflower_tulip_red")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelflower_tulip_red");
+		
+		GameRegistry.registerBlock(pixelflower_paeonia, "pixelflower_paeonia");
+		GameRegistry.registerBlock(pixelflower_tulip_pink, "pixelflower_tulip_pink");
+		GameRegistry.registerBlock(pixelflower_tulip_red, "pixelflower_tulip_red");
+		
+		pixelSand = new PixelGalavityBlocks()
+				.setBlockName("pixelSand")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelsand");
+		
+		pixelRedSand = new PixelGalavityBlocks()
+				.setBlockName("pixelRedSand")
+				.setCreativeTab(PixelCreativeTab.PixelBlocksTab)
+				.setBlockTextureName(Constants.TEXTURE_PREFIX + "pixelred_sand");
+		
+		GameRegistry.registerBlock(pixelSand, "pixelSand");
+		GameRegistry.registerBlock(pixelRedSand, "pixelRedSand");
+		
 		PixelGalaxyBlocks.pixelLavaFluid = new PixelLavaFluid("pixelLavaBlock")
 				.setBlock(PixelGalaxyBlocks.pixelLavaBlock);
 		FluidRegistry.registerFluid(PixelGalaxyBlocks.pixelLavaFluid);

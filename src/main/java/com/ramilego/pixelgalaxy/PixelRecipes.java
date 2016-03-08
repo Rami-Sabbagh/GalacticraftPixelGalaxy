@@ -373,6 +373,42 @@ public class PixelRecipes {
 				'D', PixelGalaxyItems.ironPixelIngot
 			});
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+			
+			//ChainPixel Helmet
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.ChainPixelHelmet, 1), new Object[]{
+				"DDD",
+				"D D",
+				"   ",
+				'D', PixelGalaxyItems.pixelChain
+			});
+			//ChainPixel Chestplate
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.ChainPixelChestplate, 1), new Object[]{
+				"D D",
+				"DDD",
+				"DDD",
+				'D', PixelGalaxyItems.pixelChain
+			});
+			//ChainPixel Legging
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.ChainPixelLeggings, 1), new Object[]{
+				"DDD",
+				"D D",
+				"D D",
+				'D', PixelGalaxyItems.pixelChain
+			});		
+			//ChainPixel Boots
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.ChainPixelBoots, 1), new Object[]{
+				"   ",
+				"D D",
+				"D D",
+				'D', PixelGalaxyItems.pixelChain
+			});
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.ChainPixelBoots, 1), new Object[]{
+				"D D",
+				"D D",
+				"   ",
+				'D', PixelGalaxyItems.pixelChain
+			});
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 			//stonePixel Sword
 			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.stonePixelSword, 1), new Object[]{
 				" D ",
@@ -576,37 +612,37 @@ public class PixelRecipes {
 				});	
 			
 /*------PixelStick--------------------------------------------------------------------------------------------------------------------------------------*/
-			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 1), new Object[]{
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{
 					"   ",
 					"B  ",
 					"B  ",
 					'B', PixelGalaxyItems.pixelWoodItem,
 				});	
-			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 1), new Object[]{
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{
 					"   ",
 					" B ",
 					" B ",
 					'B', PixelGalaxyItems.pixelWoodItem,
 				});	
-			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 1), new Object[]{
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{
 					"   ",
 					"  B",
 					"  B",
 					'B', PixelGalaxyItems.pixelWoodItem,
 				});	
-			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 1), new Object[]{
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{
 					"B  ",
 					"B  ",
 					"   ",
 					'B', PixelGalaxyItems.pixelWoodItem,
 				});	
-			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 1), new Object[]{
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{
 					" B ",
 					" B ",
 					"   ",
 					'B', PixelGalaxyItems.pixelWoodItem,
 				});	
-			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 1), new Object[]{
+			GameRegistry.addRecipe(new ItemStack(PixelGalaxyItems.pixelWoodStickItem, 4), new Object[]{
 					"  B",
 					"  B",
 					"   ",
@@ -629,6 +665,9 @@ public class PixelRecipes {
 		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelCobblestoneStone, new ItemStack(PixelGalaxyBlocks.pixelStone, 1), 0F);
 		GameRegistry.addSmelting(PixelGalaxyItems.pixelWoodItem, new ItemStack(PixelGalaxyItems.pixelCharCoal, 1), 0F);
 		GameRegistry.addSmelting(PixelGalaxyBlocks.pixelCoalOre, new ItemStack(PixelGalaxyItems.pixelCoal, 1), 0F);
-		GameRegistry.addSmelting(PixelGalaxyItems.pixelPotato, new ItemStack(PixelGalaxyItems.pixelBakedPotato, 1), 0F);
+		GameRegistry.addSmelting(PixelGalaxyItems.pixelPotato, new ItemStack(PixelGalaxyItems.pixelBakedPotato, 1), 0.35F);
+		GameRegistry.addSmelting(PixelGalaxyItems.pixelRewPorkchop, new ItemStack(PixelGalaxyItems.pixelCookedPorkchop, 1), 0.35F);
+		GameRegistry.addSmelting(PixelGalaxyItems.pixelbeefraw, new ItemStack(PixelGalaxyItems.pixelbeefcooked, 1), 0.35F);
+		GameRegistry.addSmelting(PixelGalaxyItems.ironPixelIngot, new ItemStack(PixelGalaxyItems.pixelChain, 4), 0.35F);
 	}
 }

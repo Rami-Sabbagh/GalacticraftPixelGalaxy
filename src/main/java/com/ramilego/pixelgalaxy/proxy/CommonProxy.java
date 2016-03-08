@@ -1,5 +1,7 @@
 package com.ramilego.pixelgalaxy.proxy;
 
+import com.ramilego.pixelgalaxy.PixelGalaxyMod;
+
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -15,6 +17,10 @@ public class CommonProxy {
 	}
 
 	public void postInit(FMLPostInitializationEvent event)
+	{
+	}
+
+	public void registerRenderers(PixelGalaxyMod pixelGalaxyMod) 
 	{
 	}
 	

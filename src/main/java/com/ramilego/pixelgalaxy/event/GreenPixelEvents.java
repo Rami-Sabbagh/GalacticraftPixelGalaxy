@@ -8,6 +8,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.ramilego.pixelgalaxy.blocks.PixelGalaxyBlocks;
 import com.ramilego.pixelgalaxy.dimension.WorldProviderGreenPixel;
+import com.ramilego.pixelgalaxy.world.gen.WorldGenPixelH3O;
+import com.ramilego.pixelgalaxy.world.gen.WorldGenPixelLava;
 import com.ramilego.pixelgalaxy.world.gen.WorldGenPixelTree;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -41,6 +43,8 @@ public class GreenPixelEvents {
 	}
 	
 	private WorldGenerator pixelTreeGenerator;
+	private WorldGenerator pixelH3OGenerator;
+	private WorldGenerator pixelLavaGenerator;
 	
 	@SubscribeEvent
     public void onPlanetDecorated(GCCoreEventPopulate.Post event)
@@ -49,7 +53,15 @@ public class GreenPixelEvents {
         {
             this.pixelTreeGenerator = new WorldGenPixelTree(true,4,0,0,false);//WorldGenEggs(MarsBlocks.rock);
         }
-
+        if (this.pixelH3OGenerator == null)
+        {
+            this.pixelH3OGenerator = new WorldGenPixelH3O(PixelGalaxyBlocks.PixelWaterH3OBLock, PixelGalaxyBlocks.PixelWaterH3OBLock, 10);
+        }
+        if (this.pixelLavaGenerator == null)
+        {
+            this.pixelLavaGenerator = new WorldGenPixelLava(PixelGalaxyBlocks.pixelLavaBlock, PixelGalaxyBlocks.pixelLavaBlock, 1);
+        }
+        
         if (event.worldObj.provider instanceof WorldProviderGreenPixel)
         {
             int treesPerChunk = 2;
@@ -66,6 +78,8 @@ public class GreenPixelEvents {
                 
                 this.pixelTreeGenerator.generate(event.worldObj, event.rand, x, y, z);
             }
+            
         }
+        
     }
 }

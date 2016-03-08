@@ -1,6 +1,10 @@
 package com.ramilego.pixelgalaxy;
 
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.ramilego.pixelgalaxy.blocks.PixelGalaxyBlocks;
@@ -18,6 +22,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.*;
@@ -33,9 +39,11 @@ public class PixelGalaxyMod {
 	
 	@Instance(Constants.modID)
 	public static PixelGalaxyMod instance;
-
+	
 	public static SolarSystem lostPixel;
 	public static Planet greenPixel;
+	
+	public static int mobid = 0;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
@@ -50,7 +58,17 @@ public class PixelGalaxyMod {
 		
 		GameRegistry.registerFuelHandler(new PixelFuelHader());
 		
-		this.proxy.preInit(event);
+		proxy.registerRenderers(this);
+	}
+	
+	@EventHandler
+	public void load(FMLInitializationEvent event) 
+	{
+
+	}
+	
+	@EventHandler
+	public void serverLoad(FMLServerStartingEvent event){
 	}
 	
 	@EventHandler
