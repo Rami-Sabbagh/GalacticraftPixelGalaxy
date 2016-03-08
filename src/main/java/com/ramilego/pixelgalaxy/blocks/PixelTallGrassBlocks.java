@@ -64,13 +64,21 @@ public class PixelTallGrassBlocks extends BlockBush implements IShearable
     	@Override
     	public Item getItemDropped(int metadata, Random random, int fortune)
     	{
-    		int drop = random.nextInt(8);
+    		int drop = random.nextInt(2);
             
                 if (drop == 0)
                 {
                   itemDropped = PixelGalaxyItems.pixelRiceSeed;
                 }
-            
+                if (drop == 1)
+                {
+                  itemDropped = PixelGalaxyItems.pixelWheatSeed;
+                }
+                if (drop == 2)
+                {
+                  itemDropped = null;
+                }
+                
             return itemDropped;
     	}
     

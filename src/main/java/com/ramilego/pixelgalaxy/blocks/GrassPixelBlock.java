@@ -101,6 +101,10 @@ public class GrassPixelBlock extends Block implements IGrowable {
 		    world.setBlock(x, y, z, PixelGalaxyBlocks.FarmlandPixel);
 		    return true;
 	   }
+	   else if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == PixelGalaxyItems.pixelGoldHoe){
+		    world.setBlock(x, y, z, PixelGalaxyBlocks.FarmlandPixel);
+		    return true;
+	   }
 	   else if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == PixelGalaxyItems.ironPixelShovel){
 		    world.setBlock(x, y, z, PixelGalaxyBlocks.pixelGrassPath);
 		    return true;
@@ -118,6 +122,10 @@ public class GrassPixelBlock extends Block implements IGrowable {
 		    return true;
 	   }
 	   else if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == PixelGalaxyItems.diamondPixelShovel){
+		    world.setBlock(x, y, z, PixelGalaxyBlocks.pixelGrassPath);
+		    return true;
+	   }
+	   else if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == PixelGalaxyItems.pixelGoldShovel){
 		    world.setBlock(x, y, z, PixelGalaxyBlocks.pixelGrassPath);
 		    return true;
 	   }

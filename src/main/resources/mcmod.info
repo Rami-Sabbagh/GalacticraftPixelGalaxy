@@ -1,13 +1,13 @@
 [
 {
   "modid": "GCPixelGalaxy",
-  "name": "GCPixelValentineGalaxy",
-  "description": "Valentine love Galacticraft 3 add-on that adds new LoVe to you heart (Pixel Galaxy).",
-  "version": "0.9.3PRE",
-  "mcversion": "L.O.V.E",
+  "name": "Pixel Galaxy",
+  "description": "Galacticraft 3 add-on that adds new galaxy (Pixel Galaxy).",
+  "version": "0.9.3",
+  "mcversion": "1.7.10",
   "url": "http://forum.micdoodle8.com/index.php?threads/pixel-galaxy.3149/",
   "updateUrl": "",
-  "authorList": ["RamiLego4Game So SEXYYYY"],
+  "authorList": ["RamiLego4Game"],
   "credits": "Micdoodle8 & Radfast for creating galacticraft mod",
   "logoFile": "assets/gcpixelgalaxy/logoFile.png",
   "screenshots": [],

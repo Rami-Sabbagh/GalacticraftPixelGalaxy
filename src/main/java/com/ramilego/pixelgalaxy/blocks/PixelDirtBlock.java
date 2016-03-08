@@ -39,6 +39,10 @@ public class PixelDirtBlock extends Block {
 		    world.setBlock(x, y, z, PixelGalaxyBlocks.FarmlandPixel);
 		    return true;
 	   }
+	   else if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == PixelGalaxyItems.pixelGoldHoe){
+		    world.setBlock(x, y, z, PixelGalaxyBlocks.FarmlandPixel);
+		    return true;
+	   }
 	  }
 	  return false;
     }

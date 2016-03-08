@@ -5,6 +5,7 @@ import com.ramilego.pixelgalaxy.PixelGalaxyMod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.world.World;
 
 public class CommonProxy {
 	
@@ -23,5 +24,10 @@ public class CommonProxy {
 	public void registerRenderers(PixelGalaxyMod pixelGalaxyMod) 
 	{
 	}
+
+	public World getWorldClient() 
+	{
+		return null;
+	}
 	
-}
+	}
