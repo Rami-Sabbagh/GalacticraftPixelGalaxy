@@ -31,7 +31,7 @@ public class OrangeLeavesPixelBlock extends BlockLeaves {
     {
         if ((p_150124_5_ & 3) == 1 && p_150124_1_.rand.nextInt(p_150124_6_) == 0)
         {
-            this.dropBlockAsItem(p_150124_1_, p_150124_2_, p_150124_3_, p_150124_4_, new ItemStack(PixelGalaxyItems.pixelApple, 1, 0));
+            this.dropBlockAsItem(p_150124_1_, p_150124_2_, p_150124_3_, p_150124_4_, new ItemStack(PixelGalaxyItems.pixelOrange, 3, 0));
         }
     }
     
@@ -82,14 +82,14 @@ public class OrangeLeavesPixelBlock extends BlockLeaves {
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return Item.getItemFromBlock(PixelGalaxyBlocks.pixelLeaves);
+        return Item.getItemFromBlock(PixelGalaxyBlocks.pixelOrangeLeaves);
     }
 
     @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
         ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
-        if (metadata >= 7 && world.rand.nextInt(1) == 2)
+        if (metadata >= 7 && world.rand.nextInt(1) == 0)
             ret.add(new ItemStack(PixelGalaxyItems.pixelOrange));
         return ret;
     }

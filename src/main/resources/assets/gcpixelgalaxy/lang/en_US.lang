@@ -22,6 +22,24 @@ tile.blueStoneOre.name=BlueStone Ore
 tile.pixelCobblestoneStone.name=Pixel Cobblestone
 tile.pixelCoalOre.name=PixelCoal Ore
 tile.pixelObsidian.name=PixelObsidian
+tile.pixelIce.name=Pixel Ice
+tile.pixelSand.name=Pixel sand
+tile.pixelRedSand.name=Pixel red sand
+tile.pixelGoldOre.name=PixelGold Ore
+tile.pixelGoldBlock.name=PixelGold Block
+tile.pixelCobblestoneStoneMossy.name=Pixel Cobblestone Mossy
+
+#############Flowers#############
+tile.pixelflower_paeonia.name=Pixel paeonia
+tile.pixelflower_tulip_pink.name=Pixel tulip pink
+tile.pixelflower_tulip_red.name=Pixel tulip red
+tile.pixelflower_allium.name=Pixel allium
+tile.pixelflower_blue_orchid.name=Pixel blue orchid
+tile.pixelflower_dandelion.name=Pixel dandelion
+tile.pixelflower_houstonia=Pixel houstonia
+tile.pixelflower_oxeye_daisy.name=Pixel oxeye daisy
+tile.pixelflower_rose.name=Pixel rose
+tile.pixelflower_tulip_orange.name=Pixel tulip orange
 
 #############Fuel###############
 item.pixelCharCoal.name=Pixel Charcoal
@@ -75,6 +93,9 @@ item.pixelizerIngot.name=Pixelizer Ingot
 item.diamondPixel.name=DiamondPixel
 item.ironPixelIngot.name=IronPixel Ingot
 item.blueStoneIngot.name=BlueStone Ingot
+item.pixelgoldingot.name=PixelGold Ingot
+item.pixelChain.name=pixelChain
+item.pixelLeather.name=pixelLeather
 
 ########## Tools ##########
 item.pixelizerSword.name=Pixelizer Sword
@@ -95,6 +116,12 @@ item.ironPixelPickaxe.name=IronPixel Pickaxe
 item.ironPixelShovel.name=IronPixel Shovel
 item.ironPixelAxe.name=IronPixel Axe
 
+item.pixelGoldSword.name=GoldPixel Sword
+item.pixelGoldHoe.name=GoldPixel Hoe
+item.pixelGoldPickaxe.name=GoldPixel Pickaxe
+item.pixelGoldShovel.name=GoldPixel Shovel
+item.pixelGoldAxe.name=GoldPixel Axe
+
 item.woodPixelSword.name=WoodPixel Sword
 item.woodPixelHoe.name=WoodPixel Hoe
 item.woodPixelPickaxe.name=WoodPixel Pickaxe
@@ -106,6 +133,12 @@ item.stonePixelHoe.name=StonePixel Hoe
 item.stonePixelPickaxe.name=StonePixel Pickaxe
 item.stonePixelShovel.name=StonePixel Shovel
 item.stonePixelAxe.name=StonePixel Axe
+
+tile.PixelBlueStoneTorch.name=Bluestone Torch
+tile.PixelTorch.name=PixelTorch
+
+##########GUIBlock##########
+tile.PixelCraftingTable.name=Pixel Crafting Table
 
 ########## outfit ##########
 item.pixelizerHelmet.name=Pixelizer Helmet
@@ -122,6 +155,21 @@ item.ironPixelHelmet.name=IronPixel Helmet
 item.ironPixelChestplate.name=IronPixel Chestplate
 item.ironPixelLeggings.name=IronPixel Leggings
 item.ironPixelBoots.name=IronPixel Boots
+
+item.pixelgold_helmet.name=PixelGold Helmet
+item.pixelgold_chestplate.name=PixelGold Chestplate
+item.pixelgold_leggings.name=PixelGold Leggings
+item.pixelgold_boots.name=PixelGold Boots
+
+item.pixelleather_helmet.name=PixelLeather Helmet
+item.pixelleather_chestplate.name=PixelLeather Chestplate
+item.pixelleather_leggings.name=PixelLeather Leggings
+item.pixelleather_boots.name=PixelLeather Boots
+
+item.ChainPixelHelmet.name=PixelChain Helmet
+item.ChainPixelChestplate.name=PixelChain Chestplate
+item.ChainPixelLeggings.name=PixelChain Leggings
+item.ChainPixelBoots.name=PixelChain Boots
 
 ########## Foods ###########
 item.pixelOrange.name=Pixel OrangeLeave
@@ -142,9 +190,57 @@ item.pixelPeaSeed.name=PixelPea Seed
 item.pixelPotatoSoup.name=PixelPotato Soup
 item.pixelCarrotSoup.name=PixelCarrot Soup
 item.pixelBakedPotato.name=Pixel BakedPotato
+tile.pixelWheatPlant.name=Pixel Wheat
+item.pixelRewPorkchop.name=pixelRewPorkchop
+item.pixelCookedPorkchop.name=pixelCookedPorkchop
+item.pixelbeefraw.name=pixelbeefraw
+item.pixelbeefcooked.name=pixelbeefcooked
+item.pixelWheatSeed.name=pixelWheatSeed
+item.pixelAlcoholDrink.name=pixelAlcohol Drink
+item.pixelAppleJuice.name=pixelApple Juice
+item.pixelOrangeJuice.name=pixelOrange Juice
+item.pixelWheatBread.name=pixelWheatBread
+item.pixelWheat.name=pixelWheat
+
+############Doors#############
+item.pixelDoorIron.name=Pixel iron door
+item.pixelDoorWood.name=Pixel wood door
+
+###########Potions###########
+item.pixelNitrogenDrink.name=Nitrogen Drink
 
 ###########Misc###############
 item.pixelBottle.name=Pixel Bottle
+
+/****************************************/
+item.pixeltrix.name=Pixeltrix
+
+item.pixeltrix_changerSpeedMode.name=Change to Speed mode
+item.pixeltrix_changerShotMode.name=Change to Shot mode
+item.pixeltrix_changerSpringMode.name=Change to Spring mode
+item.pixeltrix_changerFirerMode.name=Change to Firer mode
+item.pixeltrix_changerPlanterMode.name=Change to Planter mode
+item.pixeltrix_changerVoltMode.name=Change to Volt mode
+item.pixeltrix_changerIlluminati.name=Change to Illuminati DNA mode
+item.pixeltrix_changerEndermanDNA.name=Change to Enderman DNA mode
+
+item.pixeltrix_tochangerFirerMode_ultimate.name=Go to ultimate
+item.pixeltrix_changerFirerMode_ultimate.name=Back to Normal Firer mode
+
+item.PixeltrixitemChangerNormal.name=Change to Normal
+
+item.pixeltrix_speedMode.name=Pixeltrix Speed mode
+item.pixeltrix_shotMode.name=Pixeltrix Shot mode
+item.pixeltrix_springMode.name=Pixeltrix Spring mode
+item.pixeltrix_firerMode.name=Pixeltrix Firer mode
+item.pixeltrix_firerMode_ultimate.name=Pixeltrix Ultimate Firer mode
+item.pixeltrix_PlanterMode.name=Pixeltrix Planter mode
+item.pixeltrix_PlanterMode_BombSeed.name=Pixeltrix Planter bomb seed
+item.pixeltrix_Illuminati.name=Pixeltrix Illuminati DNA mode
+item.pixeltrix_EndermanDNA.name=Pixeltrix Enderman DNA mode
+item.pixeltrix_voltMode.name=Pixeltrix Volt mode
+
+/****************************************/
 
 ########## Creative custom bar ##########
 itemGroup.PixelBlocksTab=Pixel Blocks

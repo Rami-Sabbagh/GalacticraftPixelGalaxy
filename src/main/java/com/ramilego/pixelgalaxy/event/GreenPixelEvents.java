@@ -10,7 +10,8 @@ import com.ramilego.pixelgalaxy.blocks.PixelGalaxyBlocks;
 import com.ramilego.pixelgalaxy.dimension.WorldProviderGreenPixel;
 import com.ramilego.pixelgalaxy.world.gen.WorldGenPixelH3O;
 import com.ramilego.pixelgalaxy.world.gen.WorldGenPixelLava;
-import com.ramilego.pixelgalaxy.world.gen.WorldGenPixelTree;
+import com.ramilego.pixelgalaxy.world.gen.trees.WorldGenPixelOrangeTree;
+import com.ramilego.pixelgalaxy.world.gen.trees.WorldGenPixelTree;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import micdoodle8.mods.galacticraft.api.event.oxygen.GCCoreOxygenSuffocationEvent;
@@ -43,12 +44,17 @@ public class GreenPixelEvents {
 	}
 	
 	private WorldGenerator pixelTreeGenerator;
+	private WorldGenerator pixelOrangeTreeGenerator;
 	private WorldGenerator pixelH3OGenerator;
 	private WorldGenerator pixelLavaGenerator;
 	
 	@SubscribeEvent
     public void onPlanetDecorated(GCCoreEventPopulate.Post event)
     {
+		if (this.pixelOrangeTreeGenerator == null)
+        {
+            this.pixelOrangeTreeGenerator = new WorldGenPixelOrangeTree(true,4,0,0,false);
+        }
         if (this.pixelTreeGenerator == null)
         {
             this.pixelTreeGenerator = new WorldGenPixelTree(true,4,0,0,false);//WorldGenEggs(MarsBlocks.rock);
@@ -64,7 +70,7 @@ public class GreenPixelEvents {
         
         if (event.worldObj.provider instanceof WorldProviderGreenPixel)
         {
-            int treesPerChunk = 2;
+            int treesPerChunk = 80;
             int x;
             int y;
             int z;
@@ -77,6 +83,14 @@ public class GreenPixelEvents {
                 y = event.worldObj.getTopSolidOrLiquidBlock(x, z);
                 
                 this.pixelTreeGenerator.generate(event.worldObj, event.rand, x, y, z);
+            }
+            for (int treeCount = 0; treeCount < 20; ++treeCount)
+            {
+                x = event.chunkX + event.rand.nextInt(16) + 8;
+                z = event.chunkZ + event.rand.nextInt(16) + 8;
+                y = event.worldObj.getTopSolidOrLiquidBlock(x, z);
+                
+                this.pixelOrangeTreeGenerator.generate(event.worldObj, event.rand, x, y, z);
             }
             
         }
